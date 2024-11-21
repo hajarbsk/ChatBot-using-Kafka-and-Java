@@ -6,4 +6,8 @@ module com.chatbot.chatbotapp {
 
     opens com.chatbot.chatbotapp to javafx.fxml;
     exports com.chatbot.chatbotapp;
+    exports com.chatbot.chatbotapp.consumer;
+    opens com.chatbot.chatbotapp.consumer to javafx.fxml;
+    exports com.chatbot.chatbotapp.producer;
+    opens com.chatbot.chatbotapp.producer to javafx.fxml;
 }
