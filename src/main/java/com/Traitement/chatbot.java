@@ -1,4 +1,4 @@
-package com.chatbot.chatbotapp.Traitement;
+package com.Traitement;
 
 public class chatbot {
     public String respond(String question) {

@@ -1,16 +1,19 @@
-package com.chatbot.chatbotapp.consumer;
+package com.Kafka;
 
-import com.chatbot.chatbotapp.Traitement.chatbot;
+import com.Traitement.chatbot;
+import com.GUI.ChatbotApp;
+import com.GUI.ChatbotApp.*;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
+import javafx.application.Platform;
 
 public class KafkaConsumerExample {
     public void runConsumerLogic()  {
-        // Configurer le consumer
+        // Configurer le consumer Kafka
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
         props.put("group.id", "test-group");
@@ -18,30 +21,21 @@ public class KafkaConsumerExample {
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-
-        // S'abonner au topic
-        String topic = "test1";
-        consumer.subscribe(Collections.singletonList(topic));
+        consumer.subscribe(Collections.singletonList("test1"));
         chatbot chatbot = new chatbot();
 
-        // Lecture des messages
-        System.out.println("En attente des messages...");
         while (true) {
-            // Polling pour récupérer les messages
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
 
-            // Traitement des messages reçus
             for (ConsumerRecord<String, String> record : records) {
-                // Appeler la méthode respond du chatbot pour générer une réponse
+                // Logique de réponse du chatbot
                 String response = chatbot.respond(record.value());
-                System.out.println("Message reçu : " + record.value());
-                System.out.println("Réponse envoyée : " + response);
+
+                // Mettre à jour l'UI avec la réponse via JavaFX
+                Platform.runLater(() -> {
+                    ChatbotApp.getChat().appendText("Bot: " + response + "\n");
+                });
             }
         }
-    }
-
-    public static void main(String[] args) {
-        KafkaConsumerExample consumerExample=new KafkaConsumerExample();
-        consumerExample.runConsumerLogic();
     }
 }

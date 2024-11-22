@@ -1,4 +1,4 @@
-package com.my.chatbot.ui;
+package com.GUI;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;

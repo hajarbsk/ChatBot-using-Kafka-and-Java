@@ -1,10 +1,12 @@
-module com.chatbot.chatbotapp {
-    requires javafx.base;
+module com {
+    requires javafx.base; // Si nécessaire pour JavaFX
     requires javafx.controls;
     requires javafx.fxml;
     requires kafka.clients;
 
+    opens com.GUI to javafx.fxml; // Pour le binding avec FXML
+    exports com.Kafka;
 
-    opens com.chatbot.chatbotapp to javafx.fxml;
-    exports com.chatbot.chatbotapp;
+    exports com.Traitement;
+    exports com.GUI;
 }

@@ -1,4 +1,4 @@
-package com.chatbot.chatbotapp.server;
+package com.server;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ public class ServerManager {
     private static Process kafkaProcess;
 
     public static void startZookeeper() throws IOException {
-        System.out.println("Démarrage de Zookeeper dans un terminal séparé...");
+        System.out.println("Start : Démarrage de Zookeeper dans un terminal séparé...");
 
         String command = "cmd.exe /c start cmd.exe /k C:\\kafka\\bin\\windows\\zookeeper-server-start.bat src\\main\\resources\\zookeeper.properties";
         zookeeperProcess = Runtime.getRuntime().exec(command);

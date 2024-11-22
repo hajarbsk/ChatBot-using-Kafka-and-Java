@@ -104,7 +104,7 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <mainClass>com.chatbot.ui.ChatbotApp</mainClass> <!-- Chemin de votre classe principale -->
+                            <mainClass>com.chatbot</mainClass> <!-- Chemin de votre classe principale -->
                         </configuration>
                     </execution>
                 </executions>

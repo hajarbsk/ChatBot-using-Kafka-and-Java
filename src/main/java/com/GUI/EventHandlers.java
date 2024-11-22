@@ -1,4 +1,4 @@
-package com.my.chatbot.ui;
+package com.GUI;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
