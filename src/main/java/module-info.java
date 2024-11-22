@@ -3,6 +3,7 @@ module com {
     requires javafx.controls;
     requires javafx.fxml;
     requires kafka.clients;
+    requires java.sql;
 
     opens com.GUI to javafx.fxml; // Pour le binding avec FXML
     exports com.Kafka;
