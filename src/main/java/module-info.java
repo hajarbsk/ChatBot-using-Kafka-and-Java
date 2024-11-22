@@ -1,4 +1,5 @@
 module com.chatbot.chatbotapp {
+    requires javafx.base;
     requires javafx.controls;
     requires javafx.fxml;
     requires kafka.clients;

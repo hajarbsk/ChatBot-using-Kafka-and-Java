@@ -25,8 +25,7 @@ public class ServerManager {
 
 
 
-    public static void main(String[] args) {
-        try {
+    public void startServer() {        try {
             startZookeeper(); // Lance Zookeeper dans un terminal
             Thread.sleep(5000); // Attendre un peu que Zookeeper soit prêt
             startKafka(); // Lance Kafka dans un terminal
