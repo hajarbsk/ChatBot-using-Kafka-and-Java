@@ -4,6 +4,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
+import java.io.IOException;
 import java.util.Properties;
 
 public class KafkaProducerExample {
@@ -19,13 +20,13 @@ public class KafkaProducerExample {
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
 
         // Envoyer un message au topic "test1"
-        String topic = "test1";
+        String topic1 = "questions";
         String key = "user1";  // Peut être dynamique si vous souhaitez identifier l'utilisateur
-        producer.send(new ProducerRecord<>(topic, key, message), (metadata, exception) -> {
+        producer.send(new ProducerRecord<>(topic1, key, message), (metadata, exception) -> {
             if (exception != null) {
                 exception.printStackTrace();
             } else {
-                System.out.println("Message envoyé au topic : " + topic);
+                System.out.println("Message envoyé au topic : " + topic1 + ", Partition: " + metadata.partition() + ", Offset: " + metadata.offset());
             }
         });
 

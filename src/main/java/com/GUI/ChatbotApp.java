@@ -33,30 +33,33 @@ public class ChatbotApp extends Application {
             serverManager.startServer();  // Démarre Zookeeper et Kafka dans des processus séparés
         }).start());
 
-        // Action pour envoyer un message via Kafka Producer
+        // Action pour envoyer un message via Kafka Producer et consommer la réponse
         sendButton = new Button("Send Message");
         sendButton.setOnAction(e -> {
             String message = input.getText();  // Récupérer le message de l'utilisateur
             if (!message.trim().isEmpty()) {
                 new Thread(() -> {
+                    // Partie producteur : envoyer le message à Kafka
                     KafkaProducerExample producer = new KafkaProducerExample();
                     producer.runProducerLogic(message);  // Passer le message à Kafka
+
                     // Afficher le message envoyé dans la fenêtre chat
                     Platform.runLater(() -> {
                         chat.appendText("User: " + message + "\n");
                         input.clear();  // Effacer l'input après envoi
                     });
+
+                    try {
+                        Thread.sleep(1000); // Petite pause pour permettre à Kafka de traiter le message
+                    } catch (InterruptedException ie) {
+                        ie.printStackTrace();
+                    }
+
+                    // Partie consommateur : consommer la réponse du message envoyé
+                    KafkaConsumerExample consumer = new KafkaConsumerExample();
+                    consumer.runConsumerLogic();  // Consommer le message et obtenir la réponse
                 }).start();
             }
-        });
-
-        // Action pour démarrer le consommateur Kafka et afficher la réponse dans l'UI
-        Button consumeButton = new Button("Consume Message");
-        consumeButton.setOnAction(e -> {
-            new Thread(() -> {
-                KafkaConsumerExample consumer = new KafkaConsumerExample();
-                consumer.runConsumerLogic();  // Consommer le message et obtenir la réponse
-            }).start();
         });
 
         // Mise en place de la scène

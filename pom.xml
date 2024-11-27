@@ -53,13 +53,52 @@
             <version>3.8.0</version>
         </dependency>
         <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.5</version> <!-- Use the latest stable version -->
+        </dependency>
+
+        <!-- Module pour la gestion des types JSON -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.13.5</version>
+        </dependency>
+
+        <!-- Module pour la compatibilité avec JSON -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.13.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version> <!-- Or the latest stable version -->
+        </dependency>
+
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.36</version>
         </dependency>
+            <dependency>
+                <groupId>ai.djl</groupId>
+                <artifactId>api</artifactId>
+                <version>0.21.0</version>
+            </dependency>
+            <dependency>
+                <groupId>ai.djl</groupId>
+                <artifactId>huggingface-tokenizers</artifactId>
+                <version>0.21.0</version>
+            </dependency>
 
-
-        <!-- Stanford NLP -->
 
 
         <!-- JUnit -->
@@ -104,11 +143,16 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <mainClass>com.chatbot</mainClass> <!-- Chemin de votre classe principale -->
+                            <mainClass>com.GUI</mainClass> <!-- Chemin de votre classe principale -->
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
+            <resources>
+                <resource>
+                    <directory>src/main/resources</directory>
+                </resource>
+            </resources>
     </build>
 </project>
