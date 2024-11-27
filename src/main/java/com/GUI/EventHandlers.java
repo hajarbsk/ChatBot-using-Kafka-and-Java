@@ -1,5 +1,6 @@
 package com.GUI;
 
+import com.Kafka.KafkaProducerExample;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
@@ -22,22 +23,14 @@ public abstract class EventHandlers {
         String message = ChatBot.input.getText();
 
         if (!message.trim().equals("")) {
-
+            // Afficher le message de l'utilisateur dans la zone de discussion
             ChatBot.chat.appendText("\n\nYou: " + message + "\n");
 
-            String botReply = getBotReply(message);
-            ChatBot.chat.appendText("Bot: " + botReply + "\n\n");
+            // Envoyer le message au producteur Kafka
+            KafkaProducerExample.sendMessage(message);
 
-            // Efface le texte de la zone d'entrée
+            // Effacer la zone de saisie
             ChatBot.input.clear();
         }
-
-    }
-
-
-
-    // Méthode fictive pour simuler une réponse du bot en mode hors ligne
-    private static String getBotReply(String userMessage) {
-        return "  noha w rajaa l97ibat .";
     }
 }

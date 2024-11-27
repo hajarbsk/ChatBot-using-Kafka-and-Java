@@ -10,4 +10,5 @@ module com {
 
     exports com.Traitement;
     exports com.GUI;
+
 }
