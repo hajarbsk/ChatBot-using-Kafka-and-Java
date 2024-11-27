@@ -1,15 +1,17 @@
 package com.Kafka;
-
+import com.Reponses;
 import com.Traitement.chatbot;
 import com.GUI.ChatbotApp;
-import com.GUI.ChatbotApp.*;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
+
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 import javafx.application.Platform;
+
+import static java.lang.Thread.sleep;
 
 public class KafkaConsumerExample {
     public void runConsumerLogic()  {
@@ -21,21 +23,47 @@ public class KafkaConsumerExample {
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Collections.singletonList("test1"));
-        chatbot chatbot = new chatbot();
+        consumer.subscribe(Collections.singletonList("questions"));
+        chatbot boot = new chatbot();
+
 
         while (true) {
+            System.out.println("Polling for messages...");
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
+            if (records.isEmpty()) {
+                System.out.println("No messages received");
+            } else {
+                Reponses cboot = new Reponses();
 
-            for (ConsumerRecord<String, String> record : records) {
-                // Logique de réponse du chatbot
-                String response = chatbot.respond(record.value());
+                for (ConsumerRecord<String, String> record : records) {
+                    String userMessage = record.value();
+                    String response = cboot.respond(userMessage);
 
-                // Mettre à jour l'UI avec la réponse via JavaFX
-                Platform.runLater(() -> {
-                    ChatbotApp.getChat().appendText("Bot: " + response + "\n");
-                });
+                    try {
+                        sleep(5000); // Attendre un peu que Zookeeper soit prêt
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    Platform.runLater(() -> {
+                        ChatbotApp.getChat().appendText("Bot: " + response + "\n");
+                    });
+                }
+
+//                    for (ConsumerRecord<String, String> record : records) {
+//                        // Afficher les messages reçus dans le bon ordre
+//                        String response = boot.respond(record.value());
+//                        System.out.println("Received message: " + record.value());
+//                        Platform.runLater(() -> {
+//                            // Mettre la réponse dans l'interface graphique
+//                            System.out.println("\nResponse est : "+response);
+//                            ChatbotApp.getChat().appendText("Bot: " + response + "\n");
+//
+//                        });
+//                    }
             }
+
+
         }
     }
 }
