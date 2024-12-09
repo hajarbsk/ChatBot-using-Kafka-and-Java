@@ -1,0 +1,153 @@
+[
+    {
+      "id": "1",
+      "question": "Quels sont les horaires d'ouverture du magasin ?",
+      "response": "Nous sommes ouverts de 9h à 20h, du lundi au samedi."
+    },
+    {
+      "id": "2",
+      "question": "Puis-je retourner un produit ?",
+      "response": "Oui, vous pouvez retourner un produit dans les 30 jours suivant l'achat avec le reçu."
+    },
+    {
+      "id": "3",
+      "question": "Quels sont les produits en promotion ?",
+      "response": "Les chemises et pantalons de la collection automne sont en promotion cette semaine."
+    },
+    {
+      "id": "4",
+      "question": "Proposez-vous des vêtements pour enfants ?",
+      "response": "Oui, nous avons une section dédiée aux vêtements pour enfants de 0 à 12 ans."
+    },
+    {
+      "id": "5",
+      "question": "Acceptez-vous les cartes-cadeaux ?",
+      "response": "Oui, nous acceptons les cartes-cadeaux émises par notre magasin."
+    },
+    {
+      "id": "6",
+      "question": "Faites-vous des livraisons à domicile ?",
+      "response": "Oui, nous proposons la livraison à domicile pour les achats en ligne."
+    },
+    {
+      "id": "7",
+      "question": "Comment puis-je suivre ma commande en ligne ?",
+      "response": "Vous pouvez suivre votre commande en utilisant le numéro de suivi envoyé par email."
+    },
+    {
+      "id": "8",
+      "question": "Proposez-vous un service de personnalisation des vêtements ?",
+      "response": "Oui, nous offrons un service de broderie et d'ajustement pour certains produits."
+    },
+    {
+      "id": "9",
+      "question": "Puis-je obtenir un remboursement ?",
+      "response": "Oui, les remboursements sont possibles sous 14 jours après l'achat, avec le reçu."
+    },
+    {
+      "id": "10",
+      "question": "Quels sont vos modes de paiement acceptés ?",
+      "response": "Nous acceptons les paiements par carte bancaire, espèces, et carte-cadeau."
+    },
+    {
+      "id": "11",
+      "question": "Organisez-vous des soldes régulièrement ?",
+      "response": "Oui, nos soldes ont lieu à la fin de chaque saison."
+    },
+    {
+      "id": "12",
+      "question": "Avez-vous des vêtements pour les grandes tailles ?",
+      "response": "Oui, nous avons une collection dédiée aux grandes tailles."
+    },
+    {
+      "id": "13",
+      "question": "Est-ce que les produits en solde sont retournables ?",
+      "response": "Non, les produits en solde ne sont pas retournables, sauf en cas de défaut."
+    },
+    {
+      "id": "14",
+      "question": "Quels vêtements recommandez-vous pour l'hiver ?",
+      "response": "Nous recommandons nos manteaux en laine, pulls en cachemire, et écharpes."
+    },
+    {
+      "id": "15",
+      "question": "Proposez-vous des réductions pour étudiants ?",
+      "response": "Oui, les étudiants bénéficient de 10% de réduction sur présentation de leur carte."
+    },
+    {
+      "id": "16",
+      "question": "Puis-je échanger un produit ?",
+      "response": "Oui, les échanges sont possibles sous 30 jours avec le reçu."
+    },
+    {
+      "id": "17",
+      "question": "Est-ce que vos produits sont écoresponsables ?",
+      "response": "Oui, nous avons une gamme écoresponsable fabriquée à partir de matériaux durables."
+    },
+    {
+      "id": "18",
+      "question": "Où sont situés vos magasins physiques ?",
+      "response": "Nos magasins sont situés à Paris, Lyon, et Marseille. Consultez notre site pour les adresses exactes."
+    },
+    {
+      "id": "19",
+      "question": "Proposez-vous des cartes de fidélité ?",
+      "response": "Oui, notre carte de fidélité offre des points pour chaque achat, échangeables contre des réductions."
+    },
+    {
+      "id": "20",
+      "question": "Quels sont vos articles les plus populaires ?",
+      "response": "Nos manteaux, jeans, et baskets sont parmi les articles les plus vendus."
+    },
+    {
+      "id": "21",
+      "question": "Comment savoir si un article est en stock ?",
+      "response": "Vous pouvez vérifier la disponibilité sur notre site ou en nous appelant directement."
+    },
+    {
+      "id": "22",
+      "question": "Organisez-vous des ventes privées ?",
+      "response": "Oui, nous organisons des ventes privées pour les membres de notre programme de fidélité."
+    },
+    {
+      "id": "23",
+      "question": "Puis-je commander un article épuisé ?",
+      "response": "Oui, nous proposons un service de commande spéciale pour certains articles épuisés."
+    },
+    {
+      "id": "24",
+      "question": "Avez-vous des vêtements de sport ?",
+      "response": "Oui, nous proposons une gamme complète de vêtements de sport pour hommes et femmes."
+    },
+    {
+      "id": "25",
+      "question": "Quels matériaux utilisez-vous pour vos vêtements ?",
+      "response": "Nous utilisons principalement du coton, de la laine, et des tissus synthétiques de haute qualité."
+    },
+    {
+      "id": "26",
+      "question": "Offrez-vous un service de retouche ?",
+      "response": "Oui, nous proposons un service de retouche pour ajuster les vêtements achetés chez nous."
+    },
+    {
+      "id": "27",
+      "question": "Quels sont vos délais de livraison ?",
+      "response": "La livraison standard prend 3 à 5 jours ouvrables."
+    },
+    {
+      "id": "28",
+      "question": "Comment nettoyer vos vêtements délicats ?",
+      "response": "Nous recommandons le lavage à la main ou le nettoyage à sec pour les vêtements délicats."
+    },
+    {
+      "id": "29",
+      "question": "Puis-je acheter une carte-cadeau en ligne ?",
+      "response": "Oui, nos cartes-cadeaux sont disponibles en ligne et en magasin."
+    },
+    {
+      "id": "30",
+      "question": "Comment bénéficier des promotions en ligne ?",
+      "response": "Ajoutez les articles à votre panier et appliquez le code promo à la caisse."
+    }
+  ]
+  
