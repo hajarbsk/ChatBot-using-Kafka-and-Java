@@ -1,0 +1,23 @@
+/* Fond principal */
+.root {
+    -fx-background-color: #e1bee7; /* Violet clair */
+}
+
+/* Style des boutons */
+.button {
+    -fx-background-color: #7b1fa2; 
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+}
+
+/* Style des zones de texte */
+.text-area {
+    -fx-border-color: #7b1fa2;
+    -fx-border-radius: 5px;
+}
+
+/* Style pour le chat */
+.chat-box {
+    -fx-background-color: #f3e5f5;
+}
