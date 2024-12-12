@@ -1,76 +1,43 @@
 package com.GUI;
 
+import org.bson.types.ObjectId;
+
 public class Product {
-    private String namePr;
-    private String[] colors;
-    private String[] sizes;
-    private Double pricePr;
-    private int quantite;
+    private ObjectId id;
+    private Integer userId;
+    private Integer productId;
+    private String productName;
+    private String brand;
+    private String category;
+    private Integer price;
+    private double rating;
+    private String color;
+    private String size;
 
-    public String getGender() {
-        return gender;
+    // Constructeur
+    public Product(ObjectId id, Integer userId, Integer productId, String productName, String brand,
+                   String category, Integer price, double rating, String color, String size) {
+        this.id = id;
+        this.userId = userId;
+        this.productId = productId;
+        this.productName = productName;
+        this.brand = brand;
+        this.category = category;
+        this.price = price;
+        this.rating = rating;
+        this.color = color;
+        this.size = size;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    private String gender;
-
-    public Product(String namePr ,String[] colors, String[] sizes,Double pricePr, int quantite) {
-        this.namePr = namePr;
-        this.colors=colors;
-        this.sizes=sizes;
-        this.pricePr=pricePr;
-        this.quantite=quantite;
-    }
-
-    public String getNamePr() {
-        return namePr;
-    }
-
-    public void setNamePr(String namePr) {
-        this.namePr = namePr;
-    }
-
-    public String[] getSizes() {
-        return sizes;
-    }
-
-    public String[] getColors() {
-        return colors;
-    }
-
-    public void setColors(String[] colors) {
-        this.colors = colors;
-    }
-
-    public int getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(int quantite) {
-        this.quantite = quantite;
-    }
-
-    public void setSizes(String[] sizes) {
-        this.sizes = sizes;
-    }
-
-    public Double getPricePr() {
-        return pricePr;
-    }
-
-    public void setPricePr(Double pricePr) {
-        this.pricePr = pricePr;
-    }
-    public void displayDetails() {
-        System.out.println("Product: " + namePr);
-        System.out.println("Stock: " + quantite);
-        System.out.println("Available colors: " + String.join(", ", colors));
-        System.out.println("Available sizes: " + String.join(", ", sizes));
-        System.out.println("Price: $" + pricePr);
-        System.out.println("Gender: " + gender);
-    }
-
+    // Getters
+    public ObjectId getId() { return id; }
+    public Integer getUserId() { return userId; }
+    public Integer getProductId() { return productId; }
+    public String getProductName() { return productName; }
+    public String getBrand() { return brand; }
+    public String getCategory() { return category; }
+    public Integer getPrice() { return price; }
+    public double getRating() { return rating; }
+    public String getColor() { return color; }
+    public String getSize() { return size; }
 }

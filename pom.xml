@@ -33,7 +33,11 @@
     </properties>
 
     <dependencies>
-        <!-- JavaFX -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.10.1</version>
+        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -120,14 +124,6 @@
             <version>0.28.0</version>
         </dependency>
 
-        <!-- DJL TensorFlow engine (if needed for compatibility) -->
-<!--        <dependency>-->
-<!--            <groupId>ai.djl.tensorflow</groupId>-->
-<!--            <artifactId>tensorflow-engine</artifactId>-->
-<!--            <version>0.28.0</version>-->
-<!--        </dependency>-->
-
-        <!-- DJL MXNet engine (if needed for compatibility) -->
         <dependency>
             <groupId>ai.djl.mxnet</groupId>
             <artifactId>mxnet-engine</artifactId>

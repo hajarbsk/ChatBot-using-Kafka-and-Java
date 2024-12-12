@@ -3,12 +3,18 @@ package com.GUI;
 import com.server.ServerManager;
 import com.Kafka.KafkaConsumerExample;
 import com.Kafka.KafkaProducerExample;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -16,6 +22,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 
 public class ChatbotApp extends Application {
@@ -29,22 +38,17 @@ public class ChatbotApp extends Application {
         chatBox = new VBox(10);
         chatBox.setPadding(new Insets(10));
         chatBox.setStyle("-fx-background-color: #fbfbfb;");
-        chatBox.setPrefHeight(500);
-        chatBox.setPrefWidth(700);
+        chatBox.setPrefHeight(430);
+        chatBox.setPrefWidth(500);
 
-        ScrollPane scrollPane = new ScrollPane(chatBox);
-        scrollPane.setFitToWidth(true);
-
-        // Zone d'entrée de texte
-        inputArea = new TextArea();
+        TextArea inputArea = new TextArea();
         inputArea.setPromptText("Type your message...");
-        inputArea.setStyle("-fx-border-radius: 20px;");
-        inputArea.setPrefHeight(50);
+        inputArea.setStyle("-fx-border-radius: 20px; ");
+        inputArea.setPrefHeight(50); // Hauteur du champ de texte
 
-        // Bouton pour envoyer un message
         Button sendButton = new Button("Send");
-        sendButton.setPrefWidth(50);
-        sendButton.setPrefHeight(30);
+        sendButton.setPrefWidth(90);  // Largeur du bouton
+        sendButton.setPrefHeight(50);  // Hauteur du bouton
         sendButton.setStyle("-fx-background-color: #7b1fa2; -fx-font-family: 'Roboto'; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5px;");
         sendButton.setOnAction(e -> {
             String userMessage = inputArea.getText().trim();
@@ -62,76 +66,123 @@ public class ChatbotApp extends Application {
                 inputArea.clear();
             }
         });
-
-        // Mise en page des champs d'entrée et des boutons
+// Créer un HBox pour contenir le champ de texte et le bouton d'envoi
         HBox inputBox = new HBox(10, inputArea, sendButton);
-        inputBox.setPadding(new Insets(5));
-        inputBox.setAlignment(Pos.CENTER);
+        inputBox.setPadding(new Insets(15)); // Ajouter de la marge autour de l'inputBox
+        inputBox.setAlignment(Pos.CENTER); // Alignement du contenu dans le HBox
+        inputBox.setStyle("-fx-background-color: #7b1fa;"); // Fond de l'inputBox
 
         VBox chatbotInput = new VBox(5, chatBox, inputBox);
 
-        // Bouton et Label pour l'en-tête
-        Button buttClear = new Button("⭯");
-        buttClear.setStyle("-fx-font-size: 18px; -fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5px;");
-        buttClear.setOnAction(e ->{
+        Image icon = new Image("file:src/main/resources/nlp.png");
+        ImageView iconView = new ImageView(icon);
+        iconView.setFitWidth(70);  // Ajuster la largeur de l'icône
+        iconView.setFitHeight(60); // Ajuster la hauteur de l'icône
+
+// Ajouter l'ImageView dans un HBox
+        HBox imageContainer = new HBox(iconView);
+        imageContainer.setAlignment(Pos.CENTER_LEFT);
+
+
+        Button buttClear = new Button("🔄");
+        buttClear.setStyle("-fx-font-size: 15px; -fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5px;");
+        buttClear.setOnAction(e -> {
             chatBox.getChildren().clear();
             startMessage();
         });
 
-        Label label = new Label("Al Hidaya");
+        Label label = new Label("Fashion Products");
         label.setStyle("-fx-font-size: 20px; -fx-text-fill: white; -fx-font-family: 'Serif';");
 
-        HBox headerBox = new HBox(100, label, buttClear);
-        headerBox.setPadding(new Insets(10));
+
+        HBox headerBox = new HBox(7, imageContainer,label, buttClear);
+        headerBox.setPadding(new Insets(10, 50, 10, 10));  // Marge à gauche pour décaler
         headerBox.setStyle("-fx-background-color: #7b1fa2;");
-        headerBox.setAlignment(Pos.CENTER);
+        headerBox.setAlignment(Pos.CENTER_RIGHT);
+        headerBox.setSpacing(170);
+        headerBox.setPrefHeight(60);
 
         // Navigation latérale
+        // Création des boutons du menu
         Button home = new Button("🏠 Home");
         Button localisation = new Button("📍 Localisation");
-        Button aboutUs = new Button("ℹ️ About Us");
-        Button products = new Button("🛒 List of Products");
+        Button aboutUs = new Button("🌟 About Us");
         Button contactUs = new Button("📞 Contact Us");
         Button help = new Button("❓ Help");
-        VBox leftBox = new VBox(10, home, localisation, aboutUs, products, contactUs, help);
-        leftBox.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-border-radius: 25px; -fx-background-color: #7b1fa2;");
+        Button dark = new Button("🌓 Dark Mode");
+
+// Appliquer un style commun aux boutons
+        Button[] buttons = {home, localisation, aboutUs, contactUs, help, dark};
+        for (Button btn : buttons) {
+            btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: transparent; -fx-border-width: 0; -fx-border-radius: 5px;");
+            btn.setOnMouseEntered(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #8e24aa; -fx-border-radius: 5px;"));
+            btn.setOnMouseExited(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: transparent; -fx-border-radius: 5px;"));
+        }
+
+// Ajouter les boutons au VBox (menu)
+        VBox leftBox = new VBox(10, home, localisation, aboutUs, contactUs, help, dark);
+        leftBox.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #7b1fa2; -fx-padding: 10; -fx-border-radius: 25px;");
         leftBox.setPadding(new Insets(5));
 
-        // Mode sombre
-        Button dark = new Button("Dark Mode");
+        VBox.setVgrow(leftBox, Priority.ALWAYS);
+        leftBox.getChildren().add(new Region());
         dark.setOnAction(e -> toggleDarkMode(leftBox, headerBox));
-        leftBox.getChildren().add(dark);
+        VBox.setVgrow(leftBox, Priority.ALWAYS);
+
 
         // Ajouter les boutons en bas
-        HBox bottomMenu = new HBox(10); // Espacement entre les boutons
-        bottomMenu.setAlignment(Pos.CENTER);
+        HBox bottomMenu = new HBox(10); // Espacement entre les bouton
+        bottomMenu.setAlignment(Pos.CENTER);  // Centrer les boutons horizontalement à droite
         bottomMenu.setPadding(new Insets(10));
 
-        // Créer les boutons de menu
-        Button storeHoursBtn = new Button("Store hours");
-        Button returnPolicyBtn = new Button("Return policy");
-        Button productInfoBtn = new Button("Product info");
-        Button promotionsBtn = new Button("Promotions");
 
-        // Actions des boutons
+        Button storeHoursBtn = new Button("Store hours");
+        storeHoursBtn.setStyle("-fx-font-size: 12px; -fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+
+        Button returnPolicyBtn = new Button("Return policy");
+        returnPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+
+        Button productInfoBtn = new Button("Product info");
+        productInfoBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+
+        Button promotionsBtn = new Button("Promotions");
+        promotionsBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+
+        Button deliveryPolicyBtn = new Button("Delivery policy");
+        deliveryPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+
+
+        Button specialOffersBtn = new Button("Special offers");
+        specialOffersBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+
+
         storeHoursBtn.setOnAction(e -> handleOptionSelection("Store hours"));
         returnPolicyBtn.setOnAction(e -> handleOptionSelection("Return policy"));
         productInfoBtn.setOnAction(e -> handleOptionSelection("Product info"));
         promotionsBtn.setOnAction(e -> handleOptionSelection("Promotions"));
+        deliveryPolicyBtn.setOnAction(e -> handleOptionSelection("Delivery policy"));
 
-        // Ajouter les boutons au bottomMenu
-        bottomMenu.getChildren().addAll(storeHoursBtn, returnPolicyBtn, productInfoBtn, promotionsBtn);
+        specialOffersBtn.setOnAction(e -> handleOptionSelection("Special offers"));
+
+// Ajouter les nouveaux boutons au bottomMenu
+        bottomMenu.getChildren().addAll(storeHoursBtn, returnPolicyBtn, productInfoBtn, promotionsBtn,
+                deliveryPolicyBtn,  specialOffersBtn);
 
         VBox menu=new VBox(10,bottomMenu,inputBox);
-        // Mise en page principale
+
+        menu.setAlignment(Pos.CENTER_RIGHT);
+        VBox mainContent = new VBox(10, chatBox, menu);
+
+        ScrollPane scrollPane = new ScrollPane(mainContent);
+        scrollPane.setFitToWidth(true);
         BorderPane root = new BorderPane();
         root.setTop(headerBox);
         root.setLeft(leftBox);
         root.setCenter(scrollPane);
-        root.setBottom(menu); // Ajouter les boutons en bas
+
 
         // Configuration de la scène
-        Scene scene = new Scene(root, 700, 600);
+        Scene scene = new Scene(root, 770, 650);
         primaryStage.setTitle("Chatbot");
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(e -> Platform.exit());
@@ -142,7 +193,7 @@ public class ChatbotApp extends Application {
 
 
     private void startMessage() {
-        displayMessage("Hello! I'm Al Hidaya's bot. How can I assist you today?", "bot");
+        displayMessage("Hello! I'm Fashion Product bot. How can I assist you today?", "bot");
     }
 
     private void startServers() {
@@ -160,115 +211,119 @@ public class ChatbotApp extends Application {
     }
 
     private void toggleDarkMode(VBox leftBox, HBox headerBox) {
+        // Vérifier si on est actuellement en mode sombre en regardant le style actuel du leftBox
         boolean isDarkMode = leftBox.getStyle().contains("#333333");
-        String newStyle = isDarkMode
-                ? "-fx-background-color: #7b1fa2; -fx-text-fill: white;"
-                : "-fx-background-color: #333333; -fx-text-fill: white;";
-        leftBox.setStyle(newStyle);
-        headerBox.setStyle(newStyle);
+
+        // Styles pour le mode clair
+        String lightModeStyle = "-fx-background-color: #7b1fa2; -fx-text-fill: white;";
+        String lightModeChatBoxStyle = "-fx-background-color: #ffffff;";
+
+        // Styles pour le mode sombre
+        String darkModeStyle = "-fx-background-color: #333333; -fx-text-fill: white;";
+        String darkModeChatBoxStyle = "-fx-background-color: #2b2b2b;";
+
+        // Appliquer les styles appropriés en fonction du mode actuel
+        leftBox.setStyle(isDarkMode ? lightModeStyle : darkModeStyle);
+        chatBox.setStyle(isDarkMode ? lightModeChatBoxStyle : darkModeChatBoxStyle);
+        headerBox.setStyle(isDarkMode ? lightModeStyle : darkModeStyle);
     }
 
-    private static void displayProductCards(String category, VBox productContainer) {
-        // Efface les cartes existantes dans le conteneur
-        displayMessage(category,"user");
-        // Récupère les produits pour la catégorie sélectionnée
-        List<Product> products = handleProductSearchOption(category);
+    private static void displayProductCards(String category, GridPane productGrid) {
+        Platform.runLater(() -> displayMessage(category, "user"));
 
-        // Crée des cartes pour chaque produit
-        for (Product product : products) {
-            // Conteneur principal pour chaque carte
-            VBox card = new VBox();
-            card.setSpacing(10);
-            card.setPadding(new Insets(10));
-            card.setStyle("-fx-border-color: black; -fx-border-width: 2; -fx-background-color: #f9f9f9;");
+        Platform.runLater(() -> {
+            productGrid.getChildren().clear(); // Efface les anciennes cartes
 
-            // Titre du produit
-            Label nameLabel = new Label(product.getNamePr());
-            nameLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+            List<Product> products = handleProductSearchOption(category);
 
-            // Prix
-            Label priceLabel = new Label("Price: $" + product.getPricePr());
+            productGrid.setHgap(15); // Espacement horizontal
+            productGrid.setVgap(15); // Espacement vertical
+            productGrid.setPadding(new Insets(15)); // Marge autour de la grille
 
-            // Couleurs disponibles
-            Label colorsLabel = new Label("Colors: " + String.join(", ", product.getColors()));
+            // Vérifier si des produits ont été trouvés
+            if (products.isEmpty()) {
+                Label noProductsLabel = new Label("No products found in this category.");
+                noProductsLabel.setStyle("-fx-font-size: 14px; -fx-font-style: italic; -fx-text-fill: gray;");
+                productGrid.add(noProductsLabel, 0, 0); // Ajouter le message si aucune carte
+            } else {
+                int row = 0;
+                int col = 0;
+                for (Product product : products) {
+                    VBox card = new VBox();
+                    card.setSpacing(5); // Réduire l'espacement à l'intérieur des cartes
+                    card.setPadding(new Insets(10));
+                    card.setStyle("-fx-border-color: #dddddd; -fx-border-radius: 8; -fx-background-color: #ffffff; -fx-min-width: 150px; -fx-min-height: 200px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 5);");
 
-            // Tailles disponibles
-            Label sizesLabel = new Label("Sizes: " + String.join(", ", product.getSizes()));
+                    // Nom du produit
+                    Label nameLabel = new Label(product.getProductName());
+                    nameLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;");
 
-            // Stock disponible
-            Label stockLabel = new Label("Stock: " + product.getQuantite());
+                    // Prix du produit
+                    Label priceLabel = new Label("Price: $" + product.getPrice());
+                    priceLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: normal; -fx-text-fill: #4CAF50;");
 
-            // Ajout des éléments au conteneur de la carte
-            card.getChildren().addAll(nameLabel, priceLabel, colorsLabel, sizesLabel, stockLabel);
+                    // Marque du produit
+                    Label brand = new Label("Brand: " + product.getBrand());
+                    brand.setStyle("-fx-font-size: 12px; -fx-font-weight: normal;");
 
-            // Ajout de la carte au conteneur principal
-            productContainer.getChildren().add(card);
+                    // Couleurs disponibles
+                    Label colorsLabel = new Label("Colors: " + product.getColor());
+                    colorsLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #777777;");
 
-        }chatBox.getChildren().add(productContainer);
+                    // Tailles disponibles
+                    Label sizesLabel = new Label("Sizes: " + product.getSize());
+                    sizesLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #777777;");
+
+                    // Évaluation du produit - Formatage de la note
+                    double ratingValue = product.getRating();
+                    String formattedRating = String.format("%.3f", ratingValue); // Format à 3 chiffres après la virgule
+                    Label rating = new Label("Rating: " + formattedRating);
+                    rating.setStyle("-fx-font-size: 12px; -fx-text-fill: #777777;");
+
+                    // Ajouter les informations à la carte
+                    card.getChildren().addAll(nameLabel, priceLabel, brand, colorsLabel, sizesLabel, rating);
+                    card.setStyle("-fx-border-color: #dddddd; " +
+                            "-fx-border-radius: 8; " +
+                            "-fx-background-color: #ffffff; " +
+                            "-fx-min-width: 150px; " +
+                            "-fx-min-height: 180px; " +
+                            "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 5);");
+
+                    card.setOnMouseEntered(e -> card.setStyle("-fx-border-color: #7b1fa2; " +
+                            "-fx-background-color: #f5f5f5; " +
+                            "-fx-border-radius: 8; " +
+                            "-fx-min-width: 150px; " +
+                            "-fx-min-height: 180px; " +
+                            "-fx-effect: dropshadow(gaussian, rgba(123, 31, 162, 0.4), 8, 0, 0, 8);"));
+
+                    card.setOnMouseExited(e -> card.setStyle("-fx-border-color: #dddddd; " +
+                            "-fx-border-radius: 8; " +
+                            "-fx-background-color: #ffffff; " +
+                            "-fx-min-width: 150px; " +
+                            "-fx-min-height: 180px; " +
+                            "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 5);"));
+
+                    // Ajouter la carte à la grille
+                    productGrid.add(card, col, row);
+
+                    col++;
+                    if (col == 3) { // Limite à 3 cartes par ligne
+                        col = 0;
+                        row++; // Passer à la ligne suivante
+                    }
+                }
+            }
+
+            chatBox.getChildren().add(productGrid); // Ajouter la grille à la boîte de chat
+        });
     }
+
     private static List<Product> handleProductSearchOption(String category) {
-        // Liste de produits à retourner
-        List<Product> products = new ArrayList<>();
-        switch (category) {
-            case "Men":
-                products.add(new Product(
-                        "Jacket",
-                        new String[]{"Black", "Gray"},
-                        new String[]{"M", "L", "XL"},
-                        50.0,
-                        10
-                ));
-                products.add(new Product(
-                        "Shoes",
-                        new String[]{"Brown", "Black"},
-                        new String[]{"40", "41", "42", "43"},
-                        79.99,
-                        15
-                ));
-                break;
-
-            case "Women":
-                products.add(new Product(
-                        "Dress",
-                        new String[]{"Red", "Blue", "Green"},
-                        new String[]{"S", "M", "L"},
-                        59.99,
-                        20
-                ));
-                products.add(new Product(
-                        "Handbag",
-                        new String[]{"Black", "Beige", "White"},
-                        new String[]{"One Size"},
-                        89.99,
-                        8
-                ));
-                break;
-
-            case "Kids":
-                products.add(new Product(
-                        "T-Shirt",
-                        new String[]{"Yellow", "Pink", "Blue"},
-                        new String[]{"XS", "S", "M"},
-                        19.99,
-                        25
-                ));
-                products.add(new Product(
-                        "Sneakers",
-                        new String[]{"White", "Black", "Red"},
-                        new String[]{"28", "30", "32"},
-                        29.99,
-                        12
-                ));
-                break;
-
-            default:
-                System.out.println("Invalid category selected.");
-                break;
-        }
+        MongoDBManager dbManager = new MongoDBManager();
+        List<Product> products = dbManager.getProductsByCategory(category);
 
         return products;
     }
-
 
 
     private static void handleOptionSelection(String option) {
@@ -291,69 +346,56 @@ public class ChatbotApp extends Application {
                 displayMessage("Current promotions: \n- Buy 1 Get 1 Free on select items\n- 20% off on all winter clothing!", "bot");
                 break;
 
+            case "Delivery policy":
+                displayMessage("We offer free delivery for orders above $50. Delivery takes 3-5 business days.", "bot");
+                break;
+
+            case "Special offers":
+                displayMessage("Current special offers: \n- 10% off on your first purchase!\n- Free shipping on orders above $100.", "bot");
+                break;
+
             default:
                 displayMessage("Sorry, I don't recognize this option.", "bot");
                 break;
         }
     }
 
+
     private static void displayProductSearchOptions() {
         Platform.runLater(() -> {
             // Conteneur pour les boutons
             HBox buttonBox = new HBox(10); // Espacement entre les boutons
             buttonBox.setPadding(new Insets(10));
-            buttonBox.setAlignment(Pos.CENTER_LEFT);
             buttonBox.setStyle("-fx-background-color: #fbfbfb;");
 
             // Colonnes JSON pour la recherche
-            String[] productSearchOptions = {"Men", "Women", "Kids"};
+            String[] productSearchOptions = {"Men's Fashion", "Women's Fashion", "Kids' Fashion"};
 
-            // Conteneur principal pour les produits
-            VBox productContainer = new VBox();
-            productContainer.setSpacing(10);
-            productContainer.setPadding(new Insets(10));
+            // Conteneur principal pour les produits (GridPane pour afficher en grille)
+            GridPane productGrid = new GridPane();
+            productGrid.setHgap(10); // Espacement horizontal entre les cartes
+            productGrid.setVgap(10); // Espacement vertical entre les cartes
+            productGrid.setPadding(new Insets(10)); // Marges autour de la grille
 
             // Ajout des boutons pour chaque catégorie
             for (String searchOption : productSearchOptions) {
                 Button optionButton = new Button(searchOption);
                 optionButton.setStyle("-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
-                // Configure l'action de clic pour afficher les produits de la catégorie
-                optionButton.setOnAction(e -> displayProductCards(searchOption, productContainer));
+                // Ajout de l'événement sur chaque bouton pour afficher les produits de la catégorie
+                optionButton.setOnAction(e -> displayProductCards(searchOption, productGrid));
 
                 buttonBox.getChildren().add(optionButton);
             }
 
             // Efface les anciens éléments et ajoute les nouveaux dans le chatBox
-            chatBox.getChildren().addAll(buttonBox, productContainer);
-        });
-    }
-    private static void displayChatbotOptions() {
-        Platform.runLater(() -> {
-            HBox buttonBox = new HBox(10); // Espacement entre les boutons
-            buttonBox.setPadding(new Insets(5));
-            buttonBox.setAlignment(Pos.CENTER_LEFT);
-            buttonBox.setStyle("-fx-background-color: #fbfbfb;");
-
-            // Options à afficher
-            String[] options = {"Store hours", "Return policy", "Product info", "Promotions"};
-            for (String option : options) {
-                Button optionButton = new Button(option);
-                optionButton.setStyle("-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
-
-                // Gérer l'action en fonction du texte du bouton
-                optionButton.setOnAction(e -> handleOptionSelection(option));
-                buttonBox.getChildren().add(optionButton);
-                buttonBox.setVisible(true);
-            }
-
-            // Ajouter la boîte des boutons au chatBox
-            chatBox.getChildren().add(buttonBox);
+            chatBox.getChildren().addAll(buttonBox, productGrid);
         });
     }
 
 
-    public static void displayMessage(String message, String sender) {
+
+    private static void displayMessage(String message, String sender) {
         Platform.runLater(() -> {
             HBox messageBox = new HBox(10);
             messageBox.setPadding(new Insets(5));
@@ -378,8 +420,15 @@ public class ChatbotApp extends Application {
                 messageBox.getChildren().addAll(bubbleWithTime, avatar);
             } else {
                 messageBox.getChildren().addAll(avatar, bubbleWithTime);
-
             }
+
+            // Animation d'apparition
+            FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), messageBox);
+            fadeTransition.setFromValue(0);
+            fadeTransition.setToValue(1);
+            fadeTransition.play();
+
+
             chatBox.getChildren().add(messageBox);
         });
     }

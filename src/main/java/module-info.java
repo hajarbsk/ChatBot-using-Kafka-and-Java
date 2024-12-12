@@ -9,6 +9,9 @@ module com {
 
     requires java.desktop;
 
+    requires org.mongodb.driver.sync.client;
+    requires org.mongodb.bson; // Required for BSON operations
+    requires org.mongodb.driver.core;
 
     opens com.GUI to javafx.fxml; // Pour le binding avec FXML
     exports com.Kafka;
