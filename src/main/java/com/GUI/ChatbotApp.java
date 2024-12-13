@@ -37,19 +37,19 @@ public class ChatbotApp extends Application {
         // Zone de chat (VBox)
         chatBox = new VBox(10);
         chatBox.setPadding(new Insets(10));
-        chatBox.setStyle("-fx-background-color: #fbfbfb;");
+        chatBox.setStyle("-fx-background-color: #fbfbfb; -fx-font-size: 13px;");
         chatBox.setPrefHeight(430);
         chatBox.setPrefWidth(500);
 
         TextArea inputArea = new TextArea();
         inputArea.setPromptText("Type your message...");
-        inputArea.setStyle("-fx-border-radius: 20px; ");
+        inputArea.setStyle("-fx-border-radius: 20px;");
         inputArea.setPrefHeight(50); // Hauteur du champ de texte
 
         Button sendButton = new Button("Send");
         sendButton.setPrefWidth(90);  // Largeur du bouton
         sendButton.setPrefHeight(50);  // Hauteur du bouton
-        sendButton.setStyle("-fx-background-color: #7b1fa2; -fx-font-family: 'Roboto'; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5px;");
+        sendButton.setStyle("-fx-background-color: #9370DB; -fx-font-family: 'Roboto'; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5px;");
         sendButton.setOnAction(e -> {
             String userMessage = inputArea.getText().trim();
             if (!userMessage.isEmpty()) {
@@ -76,8 +76,8 @@ public class ChatbotApp extends Application {
 
         Image icon = new Image("file:src/main/resources/nlp.png");
         ImageView iconView = new ImageView(icon);
-        iconView.setFitWidth(70);  // Ajuster la largeur de l'icône
-        iconView.setFitHeight(60); // Ajuster la hauteur de l'icône
+        iconView.setFitWidth(102);  // Ajuster la largeur de l'icône
+        iconView.setFitHeight(78); // Ajuster la hauteur de l'icône
 
 // Ajouter l'ImageView dans un HBox
         HBox imageContainer = new HBox(iconView);
@@ -85,7 +85,7 @@ public class ChatbotApp extends Application {
 
 
         Button buttClear = new Button("🔄");
-        buttClear.setStyle("-fx-font-size: 15px; -fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5px;");
+        buttClear.setStyle("-fx-font-size: 15px; -fx-background-color: #9370DB; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5px;");
         buttClear.setOnAction(e -> {
             chatBox.getChildren().clear();
             startMessage();
@@ -97,10 +97,10 @@ public class ChatbotApp extends Application {
 
         HBox headerBox = new HBox(7, imageContainer,label, buttClear);
         headerBox.setPadding(new Insets(10, 50, 10, 10));  // Marge à gauche pour décaler
-        headerBox.setStyle("-fx-background-color: #7b1fa2;");
-        headerBox.setAlignment(Pos.CENTER_RIGHT);
+        headerBox.setStyle("-fx-background-color: #9370DB;");
+        headerBox.setAlignment(Pos.CENTER);
         headerBox.setSpacing(170);
-        headerBox.setPrefHeight(60);
+        headerBox.setPrefHeight(55);
 
         // Navigation latérale
         // Création des boutons du menu
@@ -115,45 +115,40 @@ public class ChatbotApp extends Application {
         Button[] buttons = {home, localisation, aboutUs, contactUs, help, dark};
         for (Button btn : buttons) {
             btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: transparent; -fx-border-width: 0; -fx-border-radius: 5px;");
-            btn.setOnMouseEntered(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #8e24aa; -fx-border-radius: 5px;"));
+            btn.setOnMouseEntered(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #9370DB; -fx-border-radius: 5px;"));
             btn.setOnMouseExited(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: transparent; -fx-border-radius: 5px;"));
         }
 
 // Ajouter les boutons au VBox (menu)
         VBox leftBox = new VBox(10, home, localisation, aboutUs, contactUs, help, dark);
-        leftBox.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #7b1fa2; -fx-padding: 10; -fx-border-radius: 25px;");
+        leftBox.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #9370DB; -fx-padding: 10; -fx-border-radius: 25px;");
         leftBox.setPadding(new Insets(5));
 
-        VBox.setVgrow(leftBox, Priority.ALWAYS);
-        leftBox.getChildren().add(new Region());
         dark.setOnAction(e -> toggleDarkMode(leftBox, headerBox));
-        VBox.setVgrow(leftBox, Priority.ALWAYS);
 
-
-        // Ajouter les boutons en bas
         HBox bottomMenu = new HBox(10); // Espacement entre les bouton
         bottomMenu.setAlignment(Pos.CENTER);  // Centrer les boutons horizontalement à droite
         bottomMenu.setPadding(new Insets(10));
 
 
         Button storeHoursBtn = new Button("Store hours");
-        storeHoursBtn.setStyle("-fx-font-size: 12px; -fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        storeHoursBtn.setStyle("-fx-font-size: 12px; -fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button returnPolicyBtn = new Button("Return policy");
-        returnPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        returnPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button productInfoBtn = new Button("Product info");
-        productInfoBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        productInfoBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button promotionsBtn = new Button("Promotions");
-        promotionsBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        promotionsBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button deliveryPolicyBtn = new Button("Delivery policy");
-        deliveryPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        deliveryPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
 
         Button specialOffersBtn = new Button("Special offers");
-        specialOffersBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        specialOffersBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
 
         storeHoursBtn.setOnAction(e -> handleOptionSelection("Store hours"));
@@ -171,7 +166,7 @@ public class ChatbotApp extends Application {
         VBox menu=new VBox(10,bottomMenu,inputBox);
 
         menu.setAlignment(Pos.CENTER_RIGHT);
-        VBox mainContent = new VBox(10, chatBox, menu);
+        VBox mainContent = new VBox(8, chatBox, menu);
 
         ScrollPane scrollPane = new ScrollPane(mainContent);
         scrollPane.setFitToWidth(true);
@@ -182,7 +177,7 @@ public class ChatbotApp extends Application {
 
 
         // Configuration de la scène
-        Scene scene = new Scene(root, 770, 650);
+        Scene scene = new Scene(root, 770, 670);
         primaryStage.setTitle("Chatbot");
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(e -> Platform.exit());
@@ -215,7 +210,7 @@ public class ChatbotApp extends Application {
         boolean isDarkMode = leftBox.getStyle().contains("#333333");
 
         // Styles pour le mode clair
-        String lightModeStyle = "-fx-background-color: #7b1fa2; -fx-text-fill: white;";
+        String lightModeStyle = "-fx-background-color: #9370DB; -fx-text-fill: white;";
         String lightModeChatBoxStyle = "-fx-background-color: #ffffff;";
 
         // Styles pour le mode sombre
@@ -289,7 +284,7 @@ public class ChatbotApp extends Application {
                             "-fx-min-height: 180px; " +
                             "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 5);");
 
-                    card.setOnMouseEntered(e -> card.setStyle("-fx-border-color: #7b1fa2; " +
+                    card.setOnMouseEntered(e -> card.setStyle("-fx-border-color: #9370DB; " +
                             "-fx-background-color: #f5f5f5; " +
                             "-fx-border-radius: 8; " +
                             "-fx-min-width: 150px; " +
@@ -380,7 +375,7 @@ public class ChatbotApp extends Application {
             // Ajout des boutons pour chaque catégorie
             for (String searchOption : productSearchOptions) {
                 Button optionButton = new Button(searchOption);
-                optionButton.setStyle("-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+                optionButton.setStyle("-fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
                 // Ajout de l'événement sur chaque bouton pour afficher les produits de la catégorie
                 optionButton.setOnAction(e -> displayProductCards(searchOption, productGrid));
@@ -405,7 +400,7 @@ public class ChatbotApp extends Application {
             Label bubble = new Label(message);
             bubble.setPadding(new Insets(10));
             bubble.setStyle(sender.equals("user")
-                    ? "-fx-background-color: #7b1fa2; -fx-text-fill: white; -fx-background-radius: 10px;"
+                    ? "-fx-background-color: #9370DB; -fx-text-fill: white; -fx-background-radius: 10px;"
                     : "-fx-background-color: #e0e0e0; -fx-text-fill: black; -fx-background-radius: 10px;");
             bubble.setWrapText(true);
             bubble.setMaxWidth(300);
