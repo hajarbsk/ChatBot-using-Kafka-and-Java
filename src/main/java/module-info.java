@@ -4,6 +4,9 @@ module com {
     requires javafx.fxml;
     requires kafka.clients;
     requires com.google.gson ;
+    requires java.base;
+
+    opens com.ChatResponse.NLP to com.google.gson;
     requires org.apache.commons.csv;
     requires com.fasterxml.jackson.databind; // Pour Jackson
 
@@ -12,11 +15,13 @@ module com {
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson; // Required for BSON operations
     requires org.mongodb.driver.core;
+    requires edu.stanford.nlp.corenlp;
 
     opens com.GUI to javafx.fxml; // Pour le binding avec FXML
     exports com.Kafka;
 
     exports com.Traitement;
     exports com.GUI;
+
     exports com;
 }

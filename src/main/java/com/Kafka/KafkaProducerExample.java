@@ -29,6 +29,7 @@ public class KafkaProducerExample {
                 System.out.println("Message envoyé au topic : " + topic1 + ", Partition: " + metadata.partition() + ", Offset: " + metadata.offset());
             }
         });
+        System.out.println("Message envoye au topic avec succes");
 
         // Fermer le producteur
         producer.close();

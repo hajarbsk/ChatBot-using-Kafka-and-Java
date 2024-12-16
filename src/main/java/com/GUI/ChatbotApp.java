@@ -17,6 +17,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -25,6 +27,7 @@ import java.util.List;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import org.bson.types.ObjectId;
 
 
 public class ChatbotApp extends Application {
@@ -183,6 +186,8 @@ public class ChatbotApp extends Application {
         primaryStage.setOnCloseRequest(e -> Platform.exit());
         primaryStage.show();
 
+        startServers();
+        startConsumer();
         startMessage(); // Message de démarrage
     }
 
@@ -338,7 +343,8 @@ public class ChatbotApp extends Application {
                 break;
 
             case "Promotions":
-                displayMessage("Current promotions: \n- Buy 1 Get 1 Free on select items\n- 20% off on all winter clothing!", "bot");
+                displayMessage("Current promotions: ", "bot");
+                createPromotionButtons();
                 break;
 
             case "Delivery policy":
@@ -354,8 +360,125 @@ public class ChatbotApp extends Application {
                 break;
         }
     }
+    private static void displayPromotionDetails(String userChoice) {
+        switch (userChoice) {
+            case "1":
+                displayMessage("Buy 1 Get 1 Free: Available on selected items.", "bot");
+                // Créer une liste de produits en promotion pour "Buy 1 Get 1 Free"
+                Product[] buy1Get1FreeProducts = {
+                        new Product(new ObjectId(), 1, 130, "T-shirt", "Nike", "Kids", 20, 4.5, "Red", "M"),
+                        new Product(new ObjectId(), 2, 100, "Jeans", "Levis", "Men", 50, 4.7, "Blue", "32"),
+                        new Product(new ObjectId(), 3, 105, "Hoodie", "Adidas", "Men", 40, 4.6, "Black", "L"),
+                        new Product(new ObjectId(), 4, 200, "Dress", "Pull & Bear", "Women", 100, 4.6, "Black", "L")
+                };
+                // Appeler la méthode pour afficher les produits
+                displayPromotionalProducts(buy1Get1FreeProducts);
+                break;
+
+            case "2":
+                displayMessage("20% off on winter clothing: Includes jackets, scarves, and boots.", "bot");
+                // Créer une liste de produits en promotion pour "20% off on winter clothing"
+                Product[] winterClothingProducts = {
+                        new Product(new ObjectId(), 4, 104, "Winter Jacket", "NorthFace", "Clothing", 120, 4.8, "Black", "XL"),
+                        new Product(new ObjectId(), 5, 105, "Woolen Scarf", "Gucci", "Accessories", 50, 4.9, "Gray", "One Size"),
+                        new Product(new ObjectId(), 6, 106, "Snow Boots", "Timberland", "Footwear", 150, 4.7, "Brown", "40"),
+                        new Product(new ObjectId(), 7, 106, "Boots", "Levis", "Footwear", 190, 4.7, "black", "38")
+                };
+                // Appeler la méthode pour afficher les produits
+                displayPromotionalProducts(winterClothingProducts);
+                break;
+
+            case "3":
+                displayMessage("Extra 10% off: Applies automatically at checkout for orders above $100.", "bot");
+                displayMessage("All items are eligible for this promotion if the total order exceeds $100.", "bot");
+                break;
+            default:
+                displayMessage("Invalid selection. Please choose a valid promotion number.", "bot");
+                break;
+        }
+    }
+
+    private static void displayPromotionalProducts(Product[] products) {
+        Platform.runLater(() -> {
+
+            HBox productBox = new HBox(15); // Espacement de 10 entre les produits
+            productBox.setPadding(new Insets(10));
+            productBox.setStyle("-fx-background-color: #f8f9fa;");
+
+            for (Product product : products) {
+                // Conteneur pour un produit (VBox)
+                VBox productCard = new VBox(8); // Espacement vertical entre les détails
+                productCard.setPadding(new Insets(10));
+                productCard.setStyle(
+                        "-fx-border-color: #7b1fa2; " +
+                                "-fx-border-width: 2px; " +
+                                "-fx-border-radius: 5px; " +
+                                "-fx-background-color: #ffffff; " +
+                                "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 1, 1);"
+                );
+
+                // Texte pour les détails du produit
+                Text productName = new Text(product.getProductName());
+                productName.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
+
+                Text productDetails = new Text(String.format(
+                        "Brand: %s\nPrice: $%d\nCategory: %s\nRating: %.1f/5\nColor: %s\nsize: %s",
+                        product.getBrand(),
+                        product.getPrice(),
+                        product.getCategory(),
+                        product.getRating(),
+                        product.getColor(),
+                        product.getSize()
+                ));
+                productDetails.setStyle("-fx-font-size: 12px; -fx-fill: #555;");
+                productCard.getChildren().addAll(productName, productDetails);
+
+                productBox.getChildren().add(productCard);
+                productBox.setAlignment(Pos.CENTER); //
+
+            }
+
+            chatBox.getChildren().add(productBox);
+        });
+    }
 
 
+
+    private static void createPromotionButtons() {
+        Platform.runLater(() -> {
+            // Conteneur pour les boutons
+            HBox buttonBox = new HBox(10); // Espacement entre les boutons
+            buttonBox.setPadding(new Insets(10));
+            buttonBox.setStyle("-fx-background-color: #fbfbfb;");
+
+            // Noms des promotions
+            String[] promotionOptions = {
+                    "Buy 1 Get 1 Free",
+                    "20% off on winter clothing",
+                    "Extra 10% off above $100"
+            };
+
+            VBox promotionDetailsBox = new VBox(10);
+            promotionDetailsBox.setPadding(new Insets(10));
+
+            // Ajout des boutons pour chaque promotion
+            for (int i = 0; i < promotionOptions.length; i++) {
+                String promotion = promotionOptions[i];
+                Button promotionButton = new Button(promotion);
+                promotionButton.setStyle("-fx-background-color: #9370DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+
+                final int promotionIndex = i + 1; // Index pour identifier la promotion
+                promotionButton.setOnAction(e -> {
+                    promotionDetailsBox.getChildren().clear(); // Efface les anciens détails
+                    displayPromotionDetails(String.valueOf(promotionIndex));
+                });
+
+                buttonBox.getChildren().add(promotionButton);
+            }
+
+            chatBox.getChildren().addAll(buttonBox, promotionDetailsBox);
+        });
+    }
     private static void displayProductSearchOptions() {
         Platform.runLater(() -> {
             // Conteneur pour les boutons
@@ -387,10 +510,7 @@ public class ChatbotApp extends Application {
             chatBox.getChildren().addAll(buttonBox, productGrid);
         });
     }
-
-
-
-    private static void displayMessage(String message, String sender) {
+    public static void displayMessage(String message, String sender) {
         Platform.runLater(() -> {
             HBox messageBox = new HBox(10);
             messageBox.setPadding(new Insets(5));

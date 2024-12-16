@@ -1,7 +1,7 @@
 package com.Kafka;
 
-import com.Reponses;
 import com.GUI.ChatbotApp;
+import com.ChatResponse.NLP.nlpProcessorBot;
 import javafx.application.Platform;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -13,16 +13,17 @@ import java.util.Properties;
 
 public class KafkaConsumerExample {
 
-    private Reponses reponses;
+    private nlpProcessorBot process; // Instance du bot NLP pour traiter les messages
 
+    // Constructeur qui initialise l'objet de traitement NLP
     public KafkaConsumerExample() {
-        // Initialisation de l'objet Reponses
-        this.reponses = new Reponses();
+        this.process = new nlpProcessorBot(); // Initialisation du bot NLP
     }
 
     public void startConsumer() {
         // Configuration du consumer Kafka
         Properties props = new Properties();
+        props.put("auto.offset.reset", "earliest"); // Lit les messages depuis le début
         props.put("bootstrap.servers", "localhost:9092"); // Adresse du serveur Kafka
         props.put("group.id", "test-group"); // Identifiant de groupe pour le consommateur
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
@@ -32,33 +33,35 @@ public class KafkaConsumerExample {
         consumer.subscribe(Collections.singletonList("questions")); // S'abonner au topic "questions"
 
         // Lancer un thread pour éviter de bloquer l'interface graphique
-        new Thread(() -> {
+
             try {
                 while (true) {
                     // Polling des messages Kafka
                     ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
                     if (records.isEmpty()) {
-                        System.out.println("Aucun message reçu. En attente...");
+                        System.out.println("No messages received. On hold...");
                     } else {
                         for (ConsumerRecord<String, String> record : records) {
                             String userMessage = record.value();
-                            System.out.println("Message reçu de Kafka : " + userMessage);
 
-                            // Obtenir la réponse via la classe Reponses
-                            String botResponse = reponses.respond(userMessage);
+                            System.out.println("Message received from Kafka : " + userMessage);
 
-                            // Mise à jour de l'interface utilisateur (JavaFX)
-                            Platform.runLater(() -> {
-                                // Afficher le message utilisateur
-                                try {
-                                    Thread.sleep(3000); // Simuler une attente pour la réponse
-                                } catch (InterruptedException ex) {
-                                    ex.printStackTrace();
-                                }
-                                // Afficher la réponse du bot
-                                ChatbotApp.displayMessage(botResponse, "bot");
-                                System.out.println("\nReponse : "+ botResponse);
-                            });
+                            try {
+                                // Obtenir la réponse via la classe NLP (process)
+                                String botResponse = process.respond(userMessage);
+
+                                // Mise à jour de l'interface utilisateur (JavaFX)
+                                Platform.runLater(() -> {
+                                    // Affichage du message utilisateur et de la réponse du bot
+                                    ChatbotApp.displayMessage(botResponse, "bot"); // Affichage de la réponse du bot
+                                    System.out.println("\nReponse : " + botResponse);
+                                });
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                Platform.runLater(() -> {
+                                    ChatbotApp.displayMessage("Désolé, une erreur s'est produite dans le traitement de la réponse.", "bot");
+                                });
+                            }
                         }
                     }
                 }
@@ -69,6 +72,7 @@ public class KafkaConsumerExample {
                 consumer.close();
                 System.out.println("Kafka Consumer fermé proprement.");
             }
-        }).start();
+
+
     }
 }
