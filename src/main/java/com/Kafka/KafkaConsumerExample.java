@@ -1,7 +1,7 @@
 package com.Kafka;
 
 import com.GUI.ChatbotApp;
-import com.ChatResponse.NLP.nlpProcessorBot;
+import com.GUI.HybridSearch;
 import javafx.application.Platform;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -13,11 +13,11 @@ import java.util.Properties;
 
 public class KafkaConsumerExample {
 
-    private nlpProcessorBot process; // Instance du bot NLP pour traiter les messages
+    private HybridSearch  process; // Instance du bot NLP pour traiter les messages
 
     // Constructeur qui initialise l'objet de traitement NLP
     public KafkaConsumerExample() {
-        this.process = new nlpProcessorBot(); // Initialisation du bot NLP
+        this.process = new HybridSearch(); // Initialisation du bot NLP
     }
 
     public void startConsumer() {
@@ -34,44 +34,44 @@ public class KafkaConsumerExample {
 
         // Lancer un thread pour éviter de bloquer l'interface graphique
 
-            try {
-                while (true) {
-                    // Polling des messages Kafka
-                    ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
-                    if (records.isEmpty()) {
-                        System.out.println("No messages received. On hold...");
-                    } else {
-                        for (ConsumerRecord<String, String> record : records) {
-                            String userMessage = record.value();
+        try {
+            while (true) {
+                // Polling des messages Kafka
+                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
+                if (records.isEmpty()) {
+                    System.out.println("No messages received. On hold...");
+                } else {
+                    for (ConsumerRecord<String, String> record : records) {
+                        String userMessage = record.value();
 
-                            System.out.println("Message received from Kafka : " + userMessage);
+                        System.out.println("Message received from Kafka : " + userMessage);
 
-                            try {
-                                // Obtenir la réponse via la classe NLP (process)
-                                String botResponse = process.respond(userMessage);
+                        try {
+                            // Obtenir la réponse via la classe NLP (process)
+                            String botResponse = process.getResponse(userMessage);
 
-                                // Mise à jour de l'interface utilisateur (JavaFX)
-                                Platform.runLater(() -> {
-                                    // Affichage du message utilisateur et de la réponse du bot
-                                    ChatbotApp.displayMessage(botResponse, "bot"); // Affichage de la réponse du bot
-                                    System.out.println("\nReponse : " + botResponse);
-                                });
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                Platform.runLater(() -> {
-                                    ChatbotApp.displayMessage("Désolé, une erreur s'est produite dans le traitement de la réponse.", "bot");
-                                });
-                            }
+                            // Mise à jour de l'interface utilisateur (JavaFX)
+                            Platform.runLater(() -> {
+                                // Affichage du message utilisateur et de la réponse du bot
+                                ChatbotApp.displayMessage(botResponse, "bot"); // Affichage de la réponse du bot
+                                System.out.println("\nReponse : " + botResponse);
+                            });
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Platform.runLater(() -> {
+                                ChatbotApp.displayMessage("Désolé, une erreur s'est produite dans le traitement de la réponse.", "bot");
+                            });
                         }
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.err.println("Erreur lors de la consommation des messages Kafka.");
-            } finally {
-                consumer.close();
-                System.out.println("Kafka Consumer fermé proprement.");
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Erreur lors de la consommation des messages Kafka.");
+        } finally {
+            consumer.close();
+            System.out.println("Kafka Consumer fermé proprement.");
+        }
 
 
     }

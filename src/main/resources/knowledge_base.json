@@ -1,153 +1,172 @@
 [
-    {
-      "id": "1",
-      "question": "Quels sont les horaires d'ouverture du magasin ?",
-      "response": "Nous sommes ouverts de 9h à 20h, du lundi au samedi."
-    },
-    {
-      "id": "2",
-      "question": "Puis-je retourner un produit ?",
-      "response": "Oui, vous pouvez retourner un produit dans les 30 jours suivant l'achat avec le reçu."
-    },
-    {
-      "id": "3",
-      "question": "Quels sont les produits en promotion ?",
-      "response": "Les chemises et pantalons de la collection automne sont en promotion cette semaine."
-    },
-    {
-      "id": "4",
-      "question": "Proposez-vous des vêtements pour enfants ?",
-      "response": "Oui, nous avons une section dédiée aux vêtements pour enfants de 0 à 12 ans."
-    },
-    {
-      "id": "5",
-      "question": "Acceptez-vous les cartes-cadeaux ?",
-      "response": "Oui, nous acceptons les cartes-cadeaux émises par notre magasin."
-    },
-    {
-      "id": "6",
-      "question": "Faites-vous des livraisons à domicile ?",
-      "response": "Oui, nous proposons la livraison à domicile pour les achats en ligne."
-    },
-    {
-      "id": "7",
-      "question": "Comment puis-je suivre ma commande en ligne ?",
-      "response": "Vous pouvez suivre votre commande en utilisant le numéro de suivi envoyé par email."
-    },
-    {
-      "id": "8",
-      "question": "Proposez-vous un service de personnalisation des vêtements ?",
-      "response": "Oui, nous offrons un service de broderie et d'ajustement pour certains produits."
-    },
-    {
-      "id": "9",
-      "question": "Puis-je obtenir un remboursement ?",
-      "response": "Oui, les remboursements sont possibles sous 14 jours après l'achat, avec le reçu."
-    },
-    {
-      "id": "10",
-      "question": "Quels sont vos modes de paiement acceptés ?",
-      "response": "Nous acceptons les paiements par carte bancaire, espèces, et carte-cadeau."
-    },
-    {
-      "id": "11",
-      "question": "Organisez-vous des soldes régulièrement ?",
-      "response": "Oui, nos soldes ont lieu à la fin de chaque saison."
-    },
-    {
-      "id": "12",
-      "question": "Avez-vous des vêtements pour les grandes tailles ?",
-      "response": "Oui, nous avons une collection dédiée aux grandes tailles."
-    },
-    {
-      "id": "13",
-      "question": "Est-ce que les produits en solde sont retournables ?",
-      "response": "Non, les produits en solde ne sont pas retournables, sauf en cas de défaut."
-    },
-    {
-      "id": "14",
-      "question": "Quels vêtements recommandez-vous pour l'hiver ?",
-      "response": "Nous recommandons nos manteaux en laine, pulls en cachemire, et écharpes."
-    },
-    {
-      "id": "15",
-      "question": "Proposez-vous des réductions pour étudiants ?",
-      "response": "Oui, les étudiants bénéficient de 10% de réduction sur présentation de leur carte."
-    },
-    {
-      "id": "16",
-      "question": "Puis-je échanger un produit ?",
-      "response": "Oui, les échanges sont possibles sous 30 jours avec le reçu."
-    },
-    {
-      "id": "17",
-      "question": "Est-ce que vos produits sont écoresponsables ?",
-      "response": "Oui, nous avons une gamme écoresponsable fabriquée à partir de matériaux durables."
-    },
-    {
-      "id": "18",
-      "question": "Où sont situés vos magasins physiques ?",
-      "response": "Nos magasins sont situés à Paris, Lyon, et Marseille. Consultez notre site pour les adresses exactes."
-    },
-    {
-      "id": "19",
-      "question": "Proposez-vous des cartes de fidélité ?",
-      "response": "Oui, notre carte de fidélité offre des points pour chaque achat, échangeables contre des réductions."
-    },
-    {
-      "id": "20",
-      "question": "Quels sont vos articles les plus populaires ?",
-      "response": "Nos manteaux, jeans, et baskets sont parmi les articles les plus vendus."
-    },
-    {
-      "id": "21",
-      "question": "Comment savoir si un article est en stock ?",
-      "response": "Vous pouvez vérifier la disponibilité sur notre site ou en nous appelant directement."
-    },
-    {
-      "id": "22",
-      "question": "Organisez-vous des ventes privées ?",
-      "response": "Oui, nous organisons des ventes privées pour les membres de notre programme de fidélité."
-    },
-    {
-      "id": "23",
-      "question": "Puis-je commander un article épuisé ?",
-      "response": "Oui, nous proposons un service de commande spéciale pour certains articles épuisés."
-    },
-    {
-      "id": "24",
-      "question": "Avez-vous des vêtements de sport ?",
-      "response": "Oui, nous proposons une gamme complète de vêtements de sport pour hommes et femmes."
-    },
-    {
-      "id": "25",
-      "question": "Quels matériaux utilisez-vous pour vos vêtements ?",
-      "response": "Nous utilisons principalement du coton, de la laine, et des tissus synthétiques de haute qualité."
-    },
-    {
-      "id": "26",
-      "question": "Offrez-vous un service de retouche ?",
-      "response": "Oui, nous proposons un service de retouche pour ajuster les vêtements achetés chez nous."
-    },
-    {
-      "id": "27",
-      "question": "Quels sont vos délais de livraison ?",
-      "response": "La livraison standard prend 3 à 5 jours ouvrables."
-    },
-    {
-      "id": "28",
-      "question": "Comment nettoyer vos vêtements délicats ?",
-      "response": "Nous recommandons le lavage à la main ou le nettoyage à sec pour les vêtements délicats."
-    },
-    {
-      "id": "29",
-      "question": "Puis-je acheter une carte-cadeau en ligne ?",
-      "response": "Oui, nos cartes-cadeaux sont disponibles en ligne et en magasin."
-    },
-    {
-      "id": "30",
-      "question": "Comment bénéficier des promotions en ligne ?",
-      "response": "Ajoutez les articles à votre panier et appliquez le code promo à la caisse."
-    }
-  ]
-  
+  {
+    "id": "1",
+    "question": "What are the store's opening hours when you open close closing ?",
+    "response": "Our store is open Monday to Saturday from 9 AM to 9 PM every day. We are closed on Sundays. Please check our website for any special holiday hours."
+  },
+  {
+    "id": "2",
+    "question": "Can I return a product ?",
+    "response": "You can return a product within 30 days of purchase, Please ensure the product is in its unused and original condition and you can visit us!"
+  },
+  {
+    "id": "3",
+    "question": "Which products on sale do you sell what have in store magazin product ?",
+    "response": "Currently, T-shirts, jeans, Sweaters, Dresses and Shoes from our collection are on sale. Please visit our sales web site << www.fashion_product.com >>  for a full list of discounted items."
+  },
+  {
+    "id": "4",
+    "question": "Do you offer clothing for children kids clothes sell?",
+    "response": "We have a dedicated section for children's clothing, featuring comfortable and trendy outfits, You can check the product info and choose the category kids for more informations products."
+  },
+  {
+    "id": "5",
+    "question": "what's the web site of the store ?",
+    "response": "Please visit us on << www.fashion_product.com >>."
+  },
+  {
+    "id": "6",
+    "question": "Do you offer home delivery deliveries delivering?",
+    "response": "We offer home delivery for online purchases. Delivery times vary depending on your location, and you can track your order via the tracking number provided."
+  },
+  {
+    "id": "7",
+    "question": "How can I order?",
+    "response": "You can order any product in our web site << www.fashion_product.com >>"
+  },
+  {
+    "id": "8",
+    "question": "Do you offer clothing for women clothes sell girl girls ?",
+    "response": "We have a dedicated section for women's clothing, featuring comfortable and trendy outfits, You can check the button product info and choose the category women for more informations products.."
+  },
+  {
+    "id": "9",
+    "question": "Can I get a refund give put get back money don't not like  does not want a product not satisfied cancel order ?",
+    "response": "Refund are possible within 14 days of purchase with the original receipt. Please ensure the product is in its unused and original condition and you can visit us!"
+  },
+  {
+    "id": "10",
+    "question": "What payment methods do you accept pay ?",
+    "response": "We accept credit cards, cash, and gift cards. We also support online payment methods through our website."
+  },
+  {
+    "id": "11",
+    "question": "Do you have regular sales standard average ?",
+    "response": "We organize seasonal sales at the end of each season. Be sure to check our website or subscribe to our newsletter for the latest updates."
+  },
+  {
+    "id": "12",
+    "question": "Do you have clothing for plus sizes?",
+    "response": "Sorry! we don't offer a collection dedicated to plus sizes."
+  },
+  {
+    "id": "13",
+    "question": "I have a question ask can you help need helping?",
+    "response": "Hey, how can I assist you?."
+  },
+  {
+    "id": "14",
+    "question": "What clothes do you recommend for winter propose ?",
+    "response": "For winter, we recommend our soft cashmere sweaters. Visit our winter collection in the web site for more options."
+  },
+  {
+    "id": "15",
+    "question": "Do you offer student discounts promotions sales students  ?",
+    "response": "We offer a 25% student discount with a valid student card. The discount can be used in-store or online."
+  },
+  {
+    "id": "16",
+    "question": "Can I exchange a product?",
+    "response": "We exchanges are possible within 30 days of purchase with the original receipt. Items must be in their original condition.Please visit our store !"
+  },
+  {
+    "id": "17",
+    "question": "Are your products eco-friendly Environmentally friendly respect environment?",
+    "response": "We offer a range of eco-friendly products made from sustainable materials such as organic cotton and recycled fibers."
+  },
+  {
+    "id": "18",
+    "question": "Where are your physical stores located location direction visit place address position placement ?",
+    "response": "Our physical stores are located in Al Hoceima. For specific addresses and directions, please check the location in the left Menu."
+  },
+  {
+    "id": "19",
+    "question": "Do you offer loyalty cards earn points record credit points bonus point ?",
+    "response": "We offer loyalty cards that allow you to earn points for every purchase. Points can be redeemed for discounts on future purchases."
+  },
+  {
+    "id": "20",
+    "question": "What are your most popular items products big rating  trend trending best selling high demand starts?",
+    "response": "Our most popular items include winter dresses, jeans, and shoes. These items are among our best-sellers and are available in various styles and sizes."
+  },
+  {
+    "id": "21",
+    "question": "How can I check if an item  product is in stock?",
+    "response": "You can check the availability of an item by visiting our website or by calling us directly. We also provide stock information in our product descriptions."
+  },
+  {
+    "id": "22",
+    "question": "Do you organize private sales?",
+    "response": "Yes, we organize exclusive private sales for our loyalty program members. Stay tuned to our newsletter for invites and updates."
+  },
+  {
+    "id": "23",
+    "question": "Can I order a sold-out item products?",
+    "response": "We offer a special order service for certain sold-out items. Please contact our customer service team to inquire about availability."
+  },
+  {
+    "id": "24",
+    "question": "Do you offer sportswear?",
+    "response": "Sorry ,we don't offer a full range of sportswear !"
+  },
+  {
+    "id": "25",
+    "question": "What materials do you use for your clothing industries industrialize produce products?",
+    "response": "We mainly use high-quality fabrics such as cotton, wool, and premium synthetic fibers. All our materials are carefully selected to ensure comfort and durability."
+  },
+  {
+    "id": "26",
+    "question": "Do you offer tailoring services tailor personalize a product own style features personalized?",
+    "response": "We offer tailoring services to adjust clothing purchased from us. Contact us for more details or to book an appointment."
+  },
+  {
+    "id": "27",
+    "question": "What are your delivery times how much take time when receive my product order  ?",
+    "response": "Standard delivery takes 3 to 5 business days. We also offer expedited shipping for faster delivery."
+  },
+  {
+    "id": "28",
+    "question": "How should I clean delicate clothing wash washing advice to protect product?",
+    "response": "For delicate clothing, we recommend hand washing or dry cleaning. Always refer to the care label for specific instructions."
+  },
+  {
+    "id": "29",
+    "question": "Can I buy a gift card online?",
+    "response": "Yes, our gift cards are available for purchase both online and in-store. They can be redeemed for any product in our store or on our website."
+  },
+  {
+    "id": "30",
+    "question": "How can I benefit from promotions sold promotions?",
+    "response": "Simply add the items to your cart and apply the promo code at checkout.Please check the button promotions for more details !"
+  },
+  {
+    "id": "31",
+    "question": "Do you offer free delivery shipping?",
+    "response": "We offer free standard shipping for orders over $50. For smaller orders, shipping fees apply."
+  },
+  {
+    "id": "32",
+    "question": "Can I change the delivery address  modify after placing an order?",
+    "response": "Once an order is processed, the delivery address cannot be changed. Please ensure the address is correct before finalizing your purchase."
+  },
+  {
+    "id": "33",
+    "question": "How can I contact customer support help assistant manager ?",
+    "response": "You can contact our customer support team via email, phone, or live chat on our website. We are available to assist you during business hours."
+  },
+  {
+    "id": "34",
+    "question": "Do you offer seasonal collections season products?",
+    "response": "Yes, we release new seasonal collections each year, featuring the latest trends and styles,check our web site."
+  }
+]

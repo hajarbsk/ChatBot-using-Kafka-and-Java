@@ -1,7 +1,8 @@
 package com.GUI;
 
-import com.server.ServerManager;
 import com.Kafka.KafkaConsumerExample;
+import com.server.ServerManager;
+//import com.Kafka.KafkaConsumerExample;
 import com.Kafka.KafkaProducerExample;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
@@ -441,9 +442,6 @@ public class ChatbotApp extends Application {
             chatBox.getChildren().add(productBox);
         });
     }
-
-
-
     private static void createPromotionButtons() {
         Platform.runLater(() -> {
             // Conteneur pour les boutons
@@ -475,7 +473,6 @@ public class ChatbotApp extends Application {
 
                 buttonBox.getChildren().add(promotionButton);
             }
-
             chatBox.getChildren().addAll(buttonBox, promotionDetailsBox);
         });
     }
@@ -534,6 +531,8 @@ public class ChatbotApp extends Application {
             if (sender.equals("user")) {
                 messageBox.getChildren().addAll(bubbleWithTime, avatar);
             } else {
+                bubble.setMaxWidth(500);
+
                 messageBox.getChildren().addAll(avatar, bubbleWithTime);
             }
 
