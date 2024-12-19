@@ -249,6 +249,7 @@ public class HybridSearch {
                     response.append("- Produit avec des informations manquantes.\n");
                 }
             }
+
             return response.toString();
         } else {
             // Étape 3 : Si aucun produit n'est trouvé, chercher une réponse similaire dans la base de connaissances

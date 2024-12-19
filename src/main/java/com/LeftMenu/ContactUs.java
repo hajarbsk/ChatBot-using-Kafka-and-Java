@@ -1,130 +1,93 @@
 package com.LeftMenu;
 
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.geometry.Insets;
+
+import javafx.application.HostServices;
 import javafx.geometry.Pos;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import javafx.scene.control.*;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-public class ContactUs extends Application {
+public class ContactUs{
+    public VBox getContent() {
+        // Header with store name
+        Label storeName = new Label("Fusion Products");
+        storeName.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;");
 
-    private static VBox contactUs;
-    @Override
-    public void start(Stage primaryStage) {
+        // Contact info
+        Text contactInfo = new Text("If you have any questions, feel free to reach out to us:");
+        contactInfo.setStyle("-fx-font-size: 16px; -fx-text-fill: #444;");
 
-        // Zone de chat (VBox)
-        contactUs = new VBox(10);
-        contactUs.setPadding(new Insets(10));
-        contactUs.setStyle("-fx-background-color: #fbfbfb; -fx-font-size: 13px;");
-        contactUs.setPrefHeight(430);
-        contactUs.setPrefWidth(500);
+        Text phoneNumber = new Text("📞 Phone: +212 123 456 789");
+        phoneNumber.setStyle("-fx-font-size: 14px; -fx-text-fill: #555;-fx-border");
 
+        // Message input field
+        TextField messageField = new TextField();
+        messageField.setPromptText("Write your message here...");
+        messageField.setStyle("-fx-font-size: 14px; -fx-padding: 10px;");
 
-        Image icon = new Image("file:src/main/resources/nlp.png");
-        ImageView iconView = new ImageView(icon);
-        iconView.setFitWidth(102);  // Ajuster la largeur de l'icône
-        iconView.setFitHeight(78); // Ajuster la hauteur de l'icône
+        Button sendButton = new Button("Send");
+        sendButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10px 20px; -fx-font-size: 14px;");
 
-// Ajouter l'ImageView dans un HBox
-        HBox imageContainer = new HBox(iconView);
-        imageContainer.setAlignment(Pos.CENTER_LEFT);
-
-
-        Button buttClear = new Button("🔄");
-        buttClear.setStyle("-fx-font-size: 15px; -fx-background-color: #9370DB; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5px;");
-        buttClear.setOnAction(e -> {
-            contactUs.getChildren().clear();
+        // Action for send button
+        sendButton.setOnAction(e -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Message Sent");
+            alert.setHeaderText(null);
+            alert.setContentText("Your message has been received and will be processed by our store server.");
+            alert.showAndWait();
         });
 
-        Label label = new Label("Fashion Products");
-        label.setStyle("-fx-font-size: 20px; -fx-text-fill: white; -fx-font-family: 'Serif';");
+        HBox messageBox = new HBox(10, messageField, sendButton);
+        messageBox.setAlignment(Pos.CENTER);
+
+        // Social media logos and labels
+        ImageView facebookLogo = new ImageView(new Image("file:src/main/resources/faceb.png"));
+        facebookLogo.setFitWidth(40);
+        facebookLogo.setFitHeight(40);
 
 
-        HBox headerBox = new HBox(7, imageContainer,label, buttClear);
-        headerBox.setPadding(new Insets(10, 50, 10, 10));  // Marge à gauche pour décaler
-        headerBox.setStyle("-fx-background-color: #9370DB;");
-        headerBox.setAlignment(Pos.CENTER);
-        headerBox.setSpacing(170);
-        headerBox.setPrefHeight(55);
+        ImageView telegramLogo = new ImageView(new Image("file:src/main/resources/twiter.png"));
+        telegramLogo.setFitWidth(40);
+        telegramLogo.setFitHeight(40);
 
-        // Navigation latérale
-        // Création des boutons du menu
-        Button home = new Button("🏠 Home");
-        Button localisation = new Button("📍 Localisation");
-        Button aboutUs = new Button("🌟 About Us");
-        Button contactUs = new Button("📞 Contact Us");
-        Button help = new Button("❓ Help");
-        Button dark = new Button("🌓 Dark Mode");
+        Label facebookLabel = new Label("Fushion_Products_Officiel");
+        facebookLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #333;");
 
-// Appliquer un style commun aux boutons
-        Button[] buttons = {home, localisation, aboutUs, contactUs, help, dark};
-        for (Button btn : buttons) {
-            btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: transparent; -fx-border-width: 0; -fx-border-radius: 5px;");
-            btn.setOnMouseEntered(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #9370DB; -fx-border-radius: 5px;"));
-            btn.setOnMouseExited(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: transparent; -fx-border-radius: 5px;"));
-        }
+        Label instagramLabel = new Label("Fushion_Products_Officiel");
+        instagramLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #333;");
 
-// Ajouter les boutons au VBox (menu)
-        VBox leftBox = new VBox(10, home, localisation, aboutUs, contactUs, help, dark);
-        leftBox.setStyle("-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Serif'; -fx-background-color: #9370DB; -fx-padding: 10; -fx-border-radius: 25px;");
-        leftBox.setPadding(new Insets(5));
+        Label telegramLabel = new Label("Fushion_Products_Officiel");
+        telegramLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #333;");
 
-        dark.setOnAction(e -> toggleDarkMode(leftBox, headerBox));
+        HBox socialBox1 = new HBox(10, facebookLogo, facebookLabel);
+        HBox socialBox3 = new HBox(10, telegramLogo, telegramLabel);
 
+        socialBox1.setAlignment(Pos.CENTER);
+        socialBox3.setAlignment(Pos.CENTER);
 
-        ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setFitToWidth(true);
-        BorderPane root = new BorderPane();
-        root.setTop(headerBox);
-        root.setLeft(leftBox);
-        root.setCenter(scrollPane);
+        VBox socialBox = new VBox(10, socialBox1, socialBox3);
+        socialBox.setAlignment(Pos.CENTER);
 
+        // Layout
+        VBox contactUsBox = new VBox(20, storeName, contactInfo, phoneNumber, messageBox, socialBox);
+        contactUsBox.setAlignment(Pos.CENTER);
+        contactUsBox.setStyle("-fx-padding: 20px;");
 
-        // Configuration de la scène
-        Scene scene = new Scene(root, 770, 670);
-        primaryStage.setTitle("Chatbot");
-        primaryStage.setScene(scene);
-        primaryStage.setOnCloseRequest(e -> Platform.exit());
-        primaryStage.show();
-
-    }
-
-    private void toggleDarkMode(VBox leftBox, HBox headerBox) {
-        // Vérifier si on est actuellement en mode sombre en regardant le style actuel du leftBox
-        boolean isDarkMode = leftBox.getStyle().contains("#333333");
-
-        // Styles pour le mode clair
-        String lightModeStyle = "-fx-background-color: #9370DB; -fx-text-fill: white;";
-        String lightModeChatBoxStyle = "-fx-background-color: #ffffff;";
-
-        // Styles pour le mode sombre
-        String darkModeStyle = "-fx-background-color: #333333; -fx-text-fill: white;";
-        String darkModeChatBoxStyle = "-fx-background-color: #2b2b2b;";
-
-        // Appliquer les styles appropriés en fonction du mode actuel
-        leftBox.setStyle(isDarkMode ? lightModeStyle : darkModeStyle);
-        contactUs.setStyle(isDarkMode ? lightModeChatBoxStyle : darkModeChatBoxStyle);
-        headerBox.setStyle(isDarkMode ? lightModeStyle : darkModeStyle);
+        return contactUsBox;
     }
 
 
-
-
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
 
 

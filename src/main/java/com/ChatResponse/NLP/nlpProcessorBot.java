@@ -52,6 +52,7 @@ public class nlpProcessorBot {
                 latch.countDown();
             }
         });
+        executor.shutdown(); // Assurez-vous de fermer le service après son utilisation
     }
 
     // Répondre à la demande de l'utilisateur

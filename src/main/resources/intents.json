@@ -38,6 +38,21 @@
       ]
     },
     {
+      "tag": "dress_price",
+      "patterns": [],
+      "responses": []
+    },
+    {
+      "tag": "dress_color",
+      "patterns": [],
+      "responses": []
+    },
+    {
+      "tag": "shoes_price",
+      "patterns": [],
+      "responses": []
+    },
+    {
       "tag": "purchase_request",
       "patterns": [
         "I want to buy this dress",
