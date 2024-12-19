@@ -14,7 +14,7 @@ public class Localisation{
     public VBox getContent() {
         // 1. Ajouter le texte de localisation
         Label locationLabel = new Label("Our store is located next to Sidi Bouafif School in Boukidan, Al Hoceima.");
-        locationLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #4335A7; -fx-font-family: 'Serif';");
+        locationLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #6261af; -fx-font-family: 'Serif';");
 
 // 2. Ajouter les images sous forme de HBox défilant horizontalement
         Image image1 = new Image("file:src/main/resources/store1.jpg");

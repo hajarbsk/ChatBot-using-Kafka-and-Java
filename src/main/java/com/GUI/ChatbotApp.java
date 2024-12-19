@@ -52,8 +52,9 @@ public class ChatbotApp extends Application {
         chatBox = new VBox(10);
         chatBox.setPadding(new Insets(10));
         chatBox.setStyle("-fx-background-color: #fbfbfb; -fx-font-size: 13px;");
-        chatBox.setPrefHeight(430);
-        chatBox.setPrefWidth(500);
+        chatBox.setMinHeight(430);
+        chatBox.setMinWidth(500);
+
 
          inputArea = new TextArea();
         inputArea.setPromptText("Type your message...");
@@ -62,7 +63,7 @@ public class ChatbotApp extends Application {
         Button sendButton = new Button("Send");
         sendButton.setPrefWidth(90);  // Largeur du bouton
         sendButton.setPrefHeight(50);  // Hauteur du bouton
-        sendButton.setStyle("-fx-background-color: #4335A7; -fx-font-family: 'Roboto'; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5px;");
+        sendButton.setStyle("-fx-background-color: #6261af; -fx-font-family: 'Roboto'; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5px;");
         sendButton.setOnAction(e -> {
             String userMessage = inputArea.getText().trim();
             if (!userMessage.isEmpty()) {
@@ -115,14 +116,14 @@ public class ChatbotApp extends Application {
 
 
 
-        buttClear.setStyle("-fx-font-size: 15px; -fx-background-color: #4335A7; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5px;");
+        buttClear.setStyle("-fx-font-size: 15px; -fx-background-color: #6261af; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5px;");
         buttClear.setOnAction(e -> {
             chatBox.getChildren().clear();
             startMessage();
         });
 
-        Label label = new Label("Fashion Products");//#4335A7
-        label.setStyle("-fx-font-size: 20px; -fx-text-fill: white; -fx-font-family: 'Roboto'; -fx-background-color: #4335A7;-fx-border-radius: 10px; -fx-border-color: white;");
+        Label label = new Label("Fashion Products");//#6e61af
+        label.setStyle("-fx-font-size: 20px; -fx-text-fill: white; -fx-font-family: 'Roboto'; -fx-background-color: #6261af;-fx-border-radius: 10px; -fx-border-color: white;");
 
 
         HBox headerBox = new HBox(7, imageContainer,label,buttClear);
@@ -136,23 +137,23 @@ public class ChatbotApp extends Application {
 
 
         Button storeHoursBtn = new Button("Store hours");
-        storeHoursBtn.setStyle("-fx-font-size: 12px; -fx-background-color: #4335A7; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        storeHoursBtn.setStyle("-fx-font-size: 12px; -fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button returnPolicyBtn = new Button("Return policy");
-        returnPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #4335A7; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        returnPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button productInfoBtn = new Button("Product info");
-        productInfoBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #4335A7; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        productInfoBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button promotionsBtn = new Button("Promotions");
-        promotionsBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #4335A7; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        promotionsBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
         Button deliveryPolicyBtn = new Button("Delivery policy");
-        deliveryPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #4335A7; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        deliveryPolicyBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
 
         Button specialOffersBtn = new Button("Special offers");
-        specialOffersBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #4335A7; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+        specialOffersBtn.setStyle("-fx-font-size: 12px;-fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
 
         storeHoursBtn.setOnAction(e -> handleOptionSelection("Store hours"));
@@ -170,8 +171,8 @@ public class ChatbotApp extends Application {
 
 // Navigation latérale
         // Création des boutons du menu
-        Button home = new Button("🏠 Home     ");
-        Button localisation = new Button("📍 Localisation");
+        Button home = new Button("🏠 Home       ");
+        Button localisation = new Button("📍 Location    ");
         Button aboutUs = new Button("🌟 About Us   ");
         Button contactUs = new Button("📞 Contact Us ");
 
@@ -186,14 +187,14 @@ public class ChatbotApp extends Application {
 // Appliquer un style commun aux boutons
         Button[] buttons = {home, localisation, aboutUs, contactUs, dark};
         for (Button btn : buttons) {
-            btn.setStyle("-fx-font-size: 16px; -fx-text-fill: #4335A7; -fx-font-family: 'Serif'; -fx-background-color:  #f0f0f0;-fx-border-color:  #4335A7; -fx-border-radius: 10px;");
-            btn.setOnMouseEntered(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: #4335A7; -fx-font-family: 'Serif';  -fx-background-color: #f0f0f0; -fx-border-radius: 10px;-fx-border-color:  #4335A7;"));
-            btn.setOnMouseExited(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: #4335A7; -fx-font-family: 'Serif';-fx-background-color: #f0f0f0; -fx-border-radius: 10px;-fx-border-color:  #4335A7;"));
+            btn.setStyle("-fx-font-size: 16px; -fx-text-fill: #6261af; -fx-font-family: 'Serif'; -fx-background-color:  #f0f0f0;-fx-border-color:  #6261af; -fx-border-radius: 10px;");
+            btn.setOnMouseEntered(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: #6261af; -fx-font-family: 'Serif';  -fx-background-color: #f0f0f0; -fx-border-radius: 10px;-fx-border-color:  #6261af;"));
+            btn.setOnMouseExited(e -> btn.setStyle("-fx-font-size: 16px; -fx-text-fill: #6261af; -fx-font-family: 'Serif';-fx-background-color: #f0f0f0; -fx-border-radius: 10px;-fx-border-color:  #6261af;"));
         }
 
 // Ajouter les boutons au VBox (menu)
         VBox leftBox = new VBox(10, home, localisation, aboutUs, contactUs, dark);
-        leftBox.setStyle("-fx-font-size: 16px; -fx-text-fill: #4335A7; -fx-font-family: 'Serif'; -fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-radius: 25px;");
+        leftBox.setStyle("-fx-font-size: 16px; -fx-text-fill: #6261af; -fx-font-family: 'Serif'; -fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-radius: 25px;");
         leftBox.setPadding(new Insets(5));
 
 
@@ -466,7 +467,7 @@ public class ChatbotApp extends Application {
 
             HBox productBox = new HBox(15); // Espacement de 10 entre les produits
             productBox.setPadding(new Insets(10));
-            productBox.setStyle("-fx-background-color: #f8f9fa;");
+            productBox.setStyle("-fx-background-color: #6261af;");
 
             for (Product product : products) {
                 // Conteneur pour un produit (VBox)
@@ -509,7 +510,7 @@ public class ChatbotApp extends Application {
             // Conteneur pour les boutons
             HBox buttonBox = new HBox(10); // Espacement entre les boutons
             buttonBox.setPadding(new Insets(10));
-            buttonBox.setStyle("-fx-background-color: #fbfbfb;");
+            buttonBox.setStyle("-fx-background-color: white;");
 
             // Noms des promotions
             String[] promotionOptions = {
@@ -525,7 +526,7 @@ public class ChatbotApp extends Application {
             for (int i = 0; i < promotionOptions.length; i++) {
                 String promotion = promotionOptions[i];
                 Button promotionButton = new Button(promotion);
-                promotionButton.setStyle("-fx-background-color: #d8d6f4; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+                promotionButton.setStyle("-fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
                 final int promotionIndex = i + 1; // Index pour identifier la promotion
                 promotionButton.setOnAction(e -> {
@@ -543,7 +544,7 @@ public class ChatbotApp extends Application {
             // Conteneur pour les boutons
             HBox buttonBox = new HBox(10); // Espacement entre les boutons
             buttonBox.setPadding(new Insets(30));
-            buttonBox.setStyle("-fx-background-color: #fbfbfb;");
+            buttonBox.setStyle("-fx-background-color: white;");
 
             // Colonnes JSON pour la recherche
             String[] productSearchOptions = {"Men's Fashion", "Women's Fashion", "Kids' Fashion"};
@@ -557,7 +558,7 @@ public class ChatbotApp extends Application {
             // Ajout des boutons pour chaque catégorie
             for (String searchOption : productSearchOptions) {
                 Button optionButton = new Button(searchOption);
-                optionButton.setStyle("-fx-background-color: #d8d6f4; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
+                optionButton.setStyle("-fx-background-color: #6261af; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;");
 
                 // Ajout de l'événement sur chaque bouton pour afficher les produits de la catégorie
                 optionButton.setOnAction(e -> displayProductCards(searchOption, productGrid));
@@ -572,6 +573,7 @@ public class ChatbotApp extends Application {
     public static void displayMessage(String message, String sender) {
         Platform.runLater(() -> {
             HBox messageBox = new HBox(5);
+
             messageBox.setPadding(new Insets(10));
             messageBox.setAlignment(sender.equals("user") ? Pos.CENTER_RIGHT : Pos.CENTER_LEFT);
 
@@ -581,7 +583,7 @@ public class ChatbotApp extends Application {
 
             bubble.setPadding(new Insets(10));
             bubble.setStyle(sender.equals("user")
-                    ? "-fx-background-color: #4335A7; -fx-text-fill: white; -fx-background-radius: 10px;"
+                    ? "-fx-background-color: #6261af; -fx-text-fill: white; -fx-background-radius: 10px;"
                     : "-fx-background-color: #e0e0e0; -fx-text-fill: black; -fx-background-radius: 10px;");
             bubble.setWrapText(true);
             bubble.setMaxWidth(300);
@@ -596,12 +598,12 @@ public class ChatbotApp extends Application {
 
                 messageBox.getChildren().addAll(bubbleWithTime, avatar);
             } else {
+                bubble.setWrapText(true);
                 bubble.setMaxWidth(500);
 
-                ScrollPane scrollPane = new ScrollPane(messageBox);
-                scrollPane.setFitToWidth(true); // Permet un défilement horizontal
-                scrollPane.setFitToHeight(true); // Permet un défilement vertical
-                scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS); // Toujours afficher la barre de défilement
+                bubble.setMaxHeight(400);
+
+
                 messageBox.getChildren().addAll(avatar, bubbleWithTime);
             }
 

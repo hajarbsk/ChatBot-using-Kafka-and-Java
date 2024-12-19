@@ -11,7 +11,7 @@
   },
   {
     "id": "3",
-    "question": "Which products on sale do you sell what have in store magazin product ?",
+    "question": "Which products on sale do you sell what have in store magazin  ?",
     "response": "Currently, T-shirts, jeans, Sweaters, Dresses and Shoes from our collection are on sale. Please visit our sales web site << www.fashion_product.com >>  for a full list of discounted items."
   },
   {
@@ -36,7 +36,7 @@
   },
   {
     "id": "8",
-    "question": "Do you offer clothing for women clothes sell girl girls ?",
+    "question": "Do you offer clothing for woman clothes sell girl girls ?",
     "response": "We have a dedicated section for women's clothing, featuring comfortable and trendy outfits, You can check the button product info and choose the category women for more informations products.."
   },
   {
@@ -71,12 +71,13 @@
   },
   {
     "id": "15",
-    "question": "Do you offer student discounts promotions sales students  ?",
-    "response": "We offer a 25% student discount with a valid student card. The discount can be used in-store or online."
+    "question": "How can I benefit from promotion have any tell me sold promotions?",
+    "response": "Yes, we have promotions, Please check the button promotions for more details ! Or you can simply add the items to your cart and apply the promo code at checkout."
+
   },
   {
     "id": "16",
-    "question": "Can I exchange a product?",
+    "question": "Can I exchange a product replace ?",
     "response": "We exchanges are possible within 30 days of purchase with the original receipt. Items must be in their original condition.Please visit our store !"
   },
   {
@@ -101,7 +102,7 @@
   },
   {
     "id": "21",
-    "question": "How can I check if an item  product is in stock?",
+    "question": "How can I check if an item  available product is in stock?",
     "response": "You can check the availability of an item by visiting our website or by calling us directly. We also provide stock information in our product descriptions."
   },
   {
@@ -146,8 +147,8 @@
   },
   {
     "id": "30",
-    "question": "How can I benefit from promotions sold promotions?",
-    "response": "Simply add the items to your cart and apply the promo code at checkout.Please check the button promotions for more details !"
+    "question": "Do you offer student discounts promotions sales students",
+    "response": "We offer a 25% student discount with a valid student card. The discount can be used in-store or online."
   },
   {
     "id": "31",

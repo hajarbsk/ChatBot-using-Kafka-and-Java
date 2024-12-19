@@ -12,7 +12,7 @@ public class AboutUs {
         // Titre du magasin
         Label storeName = new Label("About Our Store ");
         storeName.setAlignment(Pos.CENTER_RIGHT);
-        storeName.setStyle("-fx-font-size: 18px; -fx-background-color: #4335A7; -fx-font-weight: bold; -fx-text-fill: white;");
+        storeName.setStyle("-fx-font-size: 18px; -fx-background-color: #6261af; -fx-font-weight: bold; -fx-text-fill: white;");
 
         // Paragraphes descriptifs
         Text para1 = new Text("Fushion Products is your one-stop shop for high-quality, innovative, and affordable items.\n "

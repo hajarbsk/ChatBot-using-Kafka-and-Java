@@ -224,7 +224,7 @@ public class HybridSearch {
 
         // Si des produits sont trouvés, les convertir en objets Product et formater l'affichage
         if (!products.isEmpty()) {
-            StringBuilder response = new StringBuilder("Produits similaires trouvés :\n");
+            StringBuilder response = new StringBuilder("Similar products found :\n");
             for (Document product : products) {
                 // Récupérer les champs du produit
                 String productName = product.getString("Product Name");
@@ -246,7 +246,7 @@ public class HybridSearch {
                             .append(" | Size: ").append(size)
                             .append("\n");
                 } else {
-                    response.append("- Produit avec des informations manquantes.\n");
+                    response.append("-No Product in stock !!!\n");
                 }
             }
 
