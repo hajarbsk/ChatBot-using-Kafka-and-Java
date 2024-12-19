@@ -32,7 +32,5 @@ public class ServerManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }

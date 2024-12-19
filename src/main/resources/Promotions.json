@@ -1,0 +1,25 @@
+{
+	"promotions": [
+		{
+			"tag": "weekly_sale",
+			"brand": "Foula",
+			"description": "Get 30% off on all Foula brand items this week.",
+			"start_date": "2024-12-11",
+			"end_date": "2024-12-17"
+		},
+		{
+			"tag": "monthly_promo",
+			"brand": "Foula",
+			"description": "Exclusive 40% discount on Foula brand for December!",
+			"start_date": "2024-12-01",
+			"end_date": "2024-12-31"
+		},
+		{
+			"tag": "holiday_sale",
+			"brand": "Global",
+			"description": "Buy one get one free for the holidays!",
+			"start_date": "2024-12-24",
+			"end_date": "2024-12-31"
+		}
+	]
+}
