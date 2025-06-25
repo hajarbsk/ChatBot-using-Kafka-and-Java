@@ -16,6 +16,7 @@ module com {
     requires org.mongodb.driver.core;
     requires edu.stanford.nlp.corenlp;
     requires org.json;
+    requires java.mail;
 
     opens com.GUI to javafx.fxml; // Pour le binding avec FXML
     exports com.Kafka;

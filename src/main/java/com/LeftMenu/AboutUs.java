@@ -15,7 +15,7 @@ public class AboutUs {
         storeName.setStyle("-fx-font-size: 18px; -fx-background-color: #6261af; -fx-font-weight: bold; -fx-text-fill: white;");
 
         // Paragraphes descriptifs
-        Text para1 = new Text("Fushion Products is your one-stop shop for high-quality, innovative, and affordable items.\n "
+        Text para1 = new Text("Fashion Products is your one-stop shop for high-quality, innovative, and affordable items.\n "
                 + "We specialize in providing a diverse range of products, including sweaters, dresses, and more,\n "
                 + "all carefully curated to meet your needs.\n");
 
@@ -24,8 +24,8 @@ public class AboutUs {
                 + "- Exceptional customer service: We value your satisfaction above all.\n"
                 + "- Competitive prices: Premium quality without breaking the bank.\n");
 
-        Text para3 = new Text("Choose Fusion Products for a seamless shopping experience. Your happiness is our priority!");
-
+        Text para3 = new Text("Choose Fashion Products for a seamless shopping experience. Your happiness is our priority!");
+        para3.setStyle("-fx-text-fill:#6261af;");
         // Création du VBox avec espacement entre les éléments
         VBox vbox = new VBox(10); // 10px d'espacement entre les paragraphes
         vbox.getChildren().addAll(storeName, para1, para2, para3);
