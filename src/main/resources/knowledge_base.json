@@ -1,0 +1,173 @@
+[
+  {
+    "id": "1",
+    "question": "What are the store's opening hours when you open close closing ?",
+    "response": "Our store is open Monday to Saturday from 9 AM to 9 PM every day. We are closed on Sundays. Please check our website for any special holiday hours."
+  },
+  {
+    "id": "2",
+    "question": "Can I return a product ?",
+    "response": "You can return a product within 30 days of purchase, Please ensure the product is in its unused and original condition and you can visit us!"
+  },
+  {
+    "id": "3",
+    "question": "Which products on sale do you sell what have in store magazin  ?",
+    "response": "Currently, T-shirts, jeans, Sweaters, Dresses and Shoes from our collection are on sale. Please visit our sales web site << www.fashion_product.com >>  for a full list of discounted items."
+  },
+  {
+    "id": "4",
+    "question": "Do you offer clothing for children kids clothes sell?",
+    "response": "We have a dedicated section for children's clothing, featuring comfortable and trendy outfits, You can check the product info and choose the category kids for more informations products."
+  },
+  {
+    "id": "5",
+    "question": "what's the web site of the store ?",
+    "response": "Please visit us on << www.fashion_product.com >>."
+  },
+  {
+    "id": "6",
+    "question": "Do you offer home delivery deliveries delivering?",
+    "response": "We offer home delivery for online purchases. Delivery times vary depending on your location, and you can track your order via the tracking number provided."
+  },
+  {
+    "id": "7",
+    "question": "How can I order?",
+    "response": "You can order any product in our web site << www.fashion_product.com >>"
+  },
+  {
+    "id": "8",
+    "question": "Do you offer clothing for woman clothes sell girl girls ?",
+    "response": "We have a dedicated section for women's clothing, featuring comfortable and trendy outfits, You can check the button product info and choose the category women for more informations products.."
+  },
+  {
+    "id": "9",
+    "question": "Can I get a refund give put get back money don't not like  does not want a product not satisfied cancel order ?",
+    "response": "Refund are possible within 14 days of purchase with the original receipt. Please ensure the product is in its unused and original condition and you can visit us!"
+  },
+  {
+    "id": "10",
+    "question": "What payment methods do you accept pay ?",
+    "response": "We accept credit cards, cash, and gift cards. We also support online payment methods through our website."
+  },
+  {
+    "id": "11",
+    "question": "Do you have regular sales standard average ?",
+    "response": "We organize seasonal sales at the end of each season. Be sure to check our website or subscribe to our newsletter for the latest updates."
+  },
+  {
+    "id": "12",
+    "question": "Do you have clothing for plus sizes?",
+    "response": "Sorry! we don't offer a collection dedicated to plus sizes."
+  },
+  {
+    "id": "13",
+    "question": "I have a question ask can you help need helping?",
+    "response": "Hey, how can I assist you?."
+  },
+  {
+    "id": "14",
+    "question": "What clothes do you recommend for winter propose ?",
+    "response": "For winter, we recommend our soft cashmere sweaters. Visit our winter collection in the web site for more options."
+  },
+  {
+    "id": "15",
+    "question": "How can I benefit from promotion have any tell me sold promotions?",
+    "response": "Yes, we have promotions, Please check the button promotions for more details ! Or you can simply add the items to your cart and apply the promo code at checkout."
+
+  },
+  {
+    "id": "16",
+    "question": "Can I exchange a product replace ?",
+    "response": "We exchanges are possible within 30 days of purchase with the original receipt. Items must be in their original condition.Please visit our store !"
+  },
+  {
+    "id": "17",
+    "question": "Are your products eco-friendly Environmentally friendly respect environment?",
+    "response": "We offer a range of eco-friendly products made from sustainable materials such as organic cotton and recycled fibers."
+  },
+  {
+    "id": "18",
+    "question": "Where are your physical stores located location direction visit place address position placement ?",
+    "response": "Our physical stores are located in Al Hoceima. For specific addresses and directions, please check the location in the left Menu."
+  },
+  {
+    "id": "19",
+    "question": "Do you offer loyalty cards earn points record credit points bonus point ?",
+    "response": "We offer loyalty cards that allow you to earn points for every purchase. Points can be redeemed for discounts on future purchases."
+  },
+  {
+    "id": "20",
+    "question": "What are your most popular items products big rating  trend trending best selling high demand starts?",
+    "response": "Our most popular items include winter dresses, jeans, and shoes. These items are among our best-sellers and are available in various styles and sizes."
+  },
+  {
+    "id": "21",
+    "question": "How can I check if an item  available product is in stock?",
+    "response": "You can check the availability of an item by visiting our website or by calling us directly. We also provide stock information in our product descriptions."
+  },
+  {
+    "id": "22",
+    "question": "Do you organize private sales?",
+    "response": "Yes, we organize exclusive private sales for our loyalty program members. Stay tuned to our newsletter for invites and updates."
+  },
+  {
+    "id": "23",
+    "question": "Can I order a sold-out item products?",
+    "response": "We offer a special order service for certain sold-out items. Please contact our customer service team to inquire about availability."
+  },
+  {
+    "id": "24",
+    "question": "Do you offer sportswear?",
+    "response": "Sorry ,we don't offer a full range of sportswear !"
+  },
+  {
+    "id": "25",
+    "question": "What materials do you use for your clothing industries industrialize produce products?",
+    "response": "We mainly use high-quality fabrics such as cotton, wool, and premium synthetic fibers. All our materials are carefully selected to ensure comfort and durability."
+  },
+  {
+    "id": "26",
+    "question": "Do you offer tailoring services tailor personalize a product own style features personalized?",
+    "response": "We offer tailoring services to adjust clothing purchased from us. Contact us for more details or to book an appointment."
+  },
+  {
+    "id": "27",
+    "question": "What are your delivery times how much take time when receive my product order  ?",
+    "response": "Standard delivery takes 3 to 5 business days. We also offer expedited shipping for faster delivery."
+  },
+  {
+    "id": "28",
+    "question": "How should I clean delicate clothing wash washing advice to protect product?",
+    "response": "For delicate clothing, we recommend hand washing or dry cleaning. Always refer to the care label for specific instructions."
+  },
+  {
+    "id": "29",
+    "question": "Can I buy a gift card online?",
+    "response": "Yes, our gift cards are available for purchase both online and in-store. They can be redeemed for any product in our store or on our website."
+  },
+  {
+    "id": "30",
+    "question": "Do you offer student discounts promotions sales students",
+    "response": "We offer a 25% student discount with a valid student card. The discount can be used in-store or online."
+  },
+  {
+    "id": "31",
+    "question": "Do you offer free delivery shipping?",
+    "response": "We offer free standard shipping for orders over $50. For smaller orders, shipping fees apply."
+  },
+  {
+    "id": "32",
+    "question": "Can I change the delivery address  modify after placing an order?",
+    "response": "Once an order is processed, the delivery address cannot be changed. Please ensure the address is correct before finalizing your purchase."
+  },
+  {
+    "id": "33",
+    "question": "How can I contact customer support help assistant manager ?",
+    "response": "You can contact our customer support team via email, phone, or live chat on our website. We are available to assist you during business hours."
+  },
+  {
+    "id": "34",
+    "question": "Do you offer seasonal collections season products?",
+    "response": "Yes, we release new seasonal collections each year, featuring the latest trends and styles,check our web site."
+  }
+]

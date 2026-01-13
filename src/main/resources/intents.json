@@ -1,0 +1,345 @@
+{ "intents":
+[
+    {
+      "tag": "confirmation",
+      "patterns": [
+        "ok",
+        "okay",
+        "okk",
+        "sure",
+        "great",
+        "good",
+        "fine",
+        "alright",
+        "of course",
+        "alright",
+        "got it",
+        "yes"
+      ],
+      "responses": [
+        "Great! How else can I assist you?",
+        "Understood!",
+        "Perfect, let me know if you need anything else."
+      ]
+    },
+    {
+      "tag": "delivery_info",
+      "patterns": [
+        "Do you offer delivery?",
+        "Is delivery available?",
+        "Can I get this delivered?",
+        "Do you have livraison?",
+        "How does delivery work?"
+      ],
+      "responses": [
+        "Yes, we offer delivery services. Please provide your address for more details.",
+        "We can deliver your order. Delivery charges may apply.",
+        "Yes, delivery is available. Let me know your location for specifics."
+      ]
+    },
+    {
+      "tag": "dress_price",
+      "patterns": [],
+      "responses": []
+    },
+    {
+      "tag": "dress_color",
+      "patterns": [],
+      "responses": []
+    },
+    {
+      "tag": "shoes_price",
+      "patterns": [],
+      "responses": []
+    },
+    {
+      "tag": "purchase_request",
+      "patterns": [
+        "I want to buy this dress",
+        "Can I purchase this?",
+        "I need this in size XXL",
+        "I want to order this",
+        "Can I buy this dress for women?"
+      ],
+      "responses": [
+        "Great choice! You can proceed to checkout or visit our store.",
+        "This dress is available in XXL. Would you like to place an order?",
+        "You can buy this dress directly through our website or in-store."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": [
+        "I'm sorry, I didn't understand that. Can you please rephrase?",
+        "Could you repeat that in a different way?",
+        "I'm not sure I understand. How can I help you better?"
+      ]
+    },
+
+    {
+      "tag": "small_talk",
+      "patterns": [
+        "how are you",
+        "how's it going",
+        "how are you doing",
+        "what's up",
+        "and you",
+        "how do you feel"
+      ],
+      "responses": [
+        "I'm just a bot, but I'm here to help!",
+        "I'm doing great, thank you! How can I assist you?",
+        "I'm always ready to help you!"
+      ]
+    },
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Good day",
+        "Greetings",
+        "Hi there",
+        "Howdy",
+        "Hey there",
+        "Good morning",
+        "Good afternoon",
+        "Good evening",
+        "What's up?",
+        "How's it going?",
+        "How are you?",
+        "Is anyone there?",
+        "Hello, anyone here?",
+        "Hi, can you help me?",
+        "Hey, I have a question",
+        "Good to see you",
+        "Morning!"
+      ],
+      "responses": [
+        "Hello, how can I assist you today?",
+        "Hi there! How can I help?",
+        "Greetings! What can I do for you?",
+        "Hey! How's it going?",
+        "Good day! How may I assist you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Goodbye",
+        "Bye",
+        "See you later",
+        "Catch you later",
+        "Farewell",
+        "Take care",
+        "I'm leaving",
+        "Bye for now",
+        "See you soon",
+        "Later!"
+      ],
+      "responses": [
+        "Goodbye! Have a great day!",
+        "See you soon!",
+        "Take care!",
+        "Bye! Come back soon!"
+      ]
+    },
+    {
+      "tag": "store_location",
+      "patterns": [
+        "Where is your store located?",
+        "Can you tell me the location of the store?",
+        "What is your address?",
+        "Where can I find your shop?",
+        "How do I get to your store?",
+        "Where is your magasin?"
+      ],
+      "responses": [
+        "Our store is located next to Sidi Bouafif School in Boukidan, Al Hoceima.",
+        "You can find us near Sidi Bouafif School, Boukidan, Al Hoceima.",
+        "The store is located in Boukidan, next to Sidi Bouafif School, Al Hoceima."
+      ]
+    },
+    {
+      "tag": "product_query",
+      "patterns": ["Show me red dresses", "Do you have black shoes?"],
+      "responses": ["Here are some products that match your request."]
+    },
+    {
+      "tag": "womens_clothing",
+      "patterns": [
+        "Do you have clothes for women?",
+        "What about women's clothing?",
+        "Don't you have women's jalabiyas?",
+        "Do you sell women's dresses?",
+        "Any women's products available?"
+      ],
+      "responses": [
+        "Yes, we have a wide range of women's clothing, including jalabiyas and dresses.",
+        "Our women's section includes various styles and sizes.",
+        "We offer women's jalabiyas in all sizes and colors."
+      ]
+    },
+    {
+      "tag": "store_hours",
+      "patterns": [
+        "What are your store hours?",
+        "When do you open?",
+        "What time do you close?",
+        "Are you open on weekends?",
+        "What are your hours of operation?",
+        "Can you tell me your opening hours?",
+        "When does the store open today?",
+        "What time do you open tomorrow?",
+        "Closing time?",
+        "Store timings?"
+      ],
+      "responses": [
+        "We are open from 9 AM to 9 PM every day.",
+        "Our store hours are 9 AM to 9 PM, seven days a week."
+      ]
+    },
+    {
+      "tag": "return_policy",
+      "patterns": [
+        "What is your return policy?",
+        "Can I return an item?",
+        "How do returns work?",
+        "Is it possible to get a refund?",
+        "What's your exchange policy?",
+        "Can I return a product?",
+        "How long do I have to return something?",
+        "Do you offer returns?",
+        "Return conditions?",
+        "Refund process?"
+      ],
+      "responses": [
+        "You can return items within 30 days with a receipt.",
+        "Returns are accepted within 30 days in their original condition."
+      ]
+    },
+    {
+      "tag": "product_info",
+      "patterns": [
+        "Do you have men's jalabiyas?",
+        "What sizes do you have for women's dresses?",
+        "Tell me about children's clothing.",
+        "What colors do your dresses come in?",
+        "Do you sell shoes?",
+        "Are accessories available?",
+        "Do you have kids' clothes?",
+        "What materials are your products made from?",
+        "Do you offer organic products?",
+        "What's in stock right now?",
+        "Product availability?",
+        "Any new arrivals?"
+      ],
+      "responses": [
+        "We have men's jalabiyas in all sizes and colors.",
+        "Our women's dresses come in sizes XS to XXL.",
+        "Children's clothing is available for ages 2 to 12.",
+        "We offer a variety of accessories and shoes."
+      ]
+    },
+    {
+      "tag": "payment_methods",
+      "patterns": [
+        "Do you accept credit cards?",
+        "Can I pay with cash?",
+        "What payment methods do you take?",
+        "Do you accept PayPal?",
+        "Can I pay online?",
+        "Is contactless payment available?",
+        "Do you support digital wallets?",
+        "Can I use my card here?",
+        "How can I pay?",
+        "What are your payment options?"
+      ],
+      "responses": [
+        "We accept all major credit cards, cash, and online payments.",
+        "Yes, we accept VISA, Mastercard, and AMEX."
+      ]
+    },
+    {
+      "tag": "hijab_info",
+      "patterns": [
+        "What colors do your hijabs come in?",
+        "Do you have hijabs for children?",
+        "Tell me about your hijab sizes.",
+        "Do you offer patterned hijabs?",
+        "Are hijabs available in silk?",
+        "Do you sell modest clothing?",
+        "Hijab options?",
+        "Any special collections for hijabs?",
+        "Hijab sizes?",
+        "Children's hijabs available?"
+      ],
+      "responses": [
+        "Our hijabs are available in a variety of colors including black, white, and pastel shades.",
+        "Yes, we have hijabs for children and adults.",
+        "Our hijabs come in sizes small, medium, and large."
+      ]
+    },
+    {
+      "tag": "opening_today",
+      "patterns": [
+        "Are you open today?",
+        "What are today's hours?",
+        "Is the store open now?",
+        "Can I visit today?",
+        "What's today's schedule?",
+        "Are you open right now?",
+        "Store hours today?",
+        "Is the store closed today?",
+        "Can I shop today?",
+        "Are you open this evening?"
+      ],
+      "responses": [
+        "Yes, we are open today from 9 AM to 9 PM.",
+        "Our hours today are 9 AM to 9 PM."
+      ]
+    },
+    {
+      "tag": "childrens_clothing",
+      "patterns": [
+        "Do you have clothes for boys?",
+        "What sizes do you have for girls?",
+        "Tell me about children's outfits.",
+        "Do you sell baby clothes?",
+        "Kids' clothing options?",
+        "Clothing for toddlers?",
+        "Children's sizes?",
+        "Boys' shirts?",
+        "Girls' dresses?",
+        "Outfits for kids?"
+      ],
+      "responses": [
+        "We have clothing for girls and boys aged 2 to 12.",
+        "Our girls' and boys' clothing ranges from size 2T to size 12.",
+        "Children's outfits that we have include dresses, shirts, and pants."
+      ]
+    },
+    {
+      "tag": "promotions",
+      "patterns": [
+        "Do you have any promotions?",
+        "What discounts are available?",
+        "Are there any sales happening now?",
+        "What offers do you have?",
+        "Current promotions?",
+        "Any special deals?",
+        "Is there a sale today?",
+        "Discount information?",
+        "Promo codes?",
+        "Buy one get one offers?"
+      ],
+      "responses": [
+        "Yes, we have up to 30% off on selected items this week.",
+        "Check out our seasonal sale for discounts up to 50%.",
+        "Our promotions include buy-one-get-one-free on selected items."
+      ]
+    }
+  ]
+}
